@@ -1,0 +1,44 @@
+user_id,trade_id,trade_date,tag,confidence,rationale,scope,source
+soham,4,2025-08-20,outcome_win,0.9,Win: PnL $259.20,trade,rule
+soham,5,2025-08-21,outcome_win,0.9,Win: PnL $576.00,trade,rule
+soham,9,2025-08-27,outcome_win,0.9,Win: PnL $1244.50,trade,rule
+soham,10,2025-08-28,outcome_win,0.9,Win: PnL $2495.00,trade,rule
+soham,11,2025-08-28,outcome_win,0.9,Win: PnL $256.00,trade,rule
+soham,12,2025-09-02,outcome_win,0.9,Win: PnL $145.60,trade,rule
+soham,15,2025-09-08,outcome_win,0.9,Win: PnL $1132.00,trade,rule
+soham,16,2025-09-08,outcome_win,0.9,Win: PnL $357.00,trade,rule
+soham,17,2025-09-12,outcome_win,0.9,Win: PnL $79.50,trade,rule
+soham,18,2025-09-12,outcome_win,0.9,Win: PnL $1593.00,trade,rule
+soham,20,2025-09-16,outcome_win,0.9,Win: PnL $796.50,trade,rule
+soham,21,2025-09-16,outcome_win,0.9,Win: PnL $796.50,trade,rule
+soham,22,2025-09-17,outcome_win,0.9,Win: PnL $1268.30,trade,rule
+soham,23,2025-09-17,outcome_win,0.9,Win: PnL $495.80,trade,rule
+soham,24,2025-09-17,outcome_win,0.9,Win: PnL $426.80,trade,rule
+soham,25,2025-09-18,outcome_win,0.9,Win: PnL $569.25,trade,rule
+soham,27,2025-09-24,outcome_win,0.9,Win: PnL $43.30,trade,rule
+soham,2,2025-08-19,outcome_loss,0.9,Loss: PnL $-40.40,trade,rule
+soham,3,2025-08-20,outcome_loss,0.9,Loss: PnL $-48.00,trade,rule
+soham,13,2025-09-03,outcome_loss,0.9,Loss: PnL $-90.80,trade,rule
+soham,19,2025-09-16,outcome_loss,0.9,Loss: PnL $-2.00,trade,rule
+soham,1,2025-08-15,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
+soham,6,2025-08-21,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
+soham,7,2025-08-22,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
+soham,8,2025-08-26,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
+soham,14,2025-09-05,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
+soham,26,2025-09-19,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
+soham,10,2025-08-28,large_win,0.75,Top-decile win for this user (PnL $2495.00),trade,rule
+soham,18,2025-09-12,large_win,0.75,Top-decile win for this user (PnL $1593.00),trade,rule
+soham,22,2025-09-17,large_win,0.75,Top-decile win for this user (PnL $1268.30),trade,rule
+soham,2,2025-08-19,large_loss,0.85,Worst-decile loss for this user (PnL $-40.40),trade,rule
+soham,3,2025-08-20,large_loss,0.85,Worst-decile loss for this user (PnL $-48.00),trade,rule
+soham,13,2025-09-03,large_loss,0.85,Worst-decile loss for this user (PnL $-90.80),trade,rule
+soham,4,2025-08-20,revenge_immediate,0.7,Immediate re-entry after loss,trade,rule
+soham,20,2025-09-16,revenge_immediate,0.7,Immediate re-entry after loss,trade,rule
+soham,1,2025-08-15,size_inconsistency,0.75,"Size 2.3σ above your median (notional $41,200)",trade,rule
+soham,10,2025-08-28,size_inconsistency,0.75,"Size 2.4σ above your median (notional $41,710)",trade,rule
+soham,11,2025-08-28,size_inconsistency,0.75,"Size 2.8σ above your median (notional $47,392)",trade,rule
+soham,15,2025-09-08,size_inconsistency,0.75,"Size 2.6σ above your median (notional $44,062)",trade,rule
+soham,24,2025-09-17,size_inconsistency,0.75,"Size 3.3σ above your median (notional $53,010)",trade,rule
+soham,,2025-08-20,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean PnL $-46.93,day,rule
+soham,,2025-09-03,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean PnL $-46.93,day,rule
+soham,,2025-09-16,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean PnL $-46.93,day,rule

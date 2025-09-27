@@ -1,0 +1,11 @@
+event_id,user_id,date,event_type,amount,note
+1,soham,2025-08-15,deposit,2500.0,Deposit
+2,soham,2025-08-15,fee,-4.99,Fee
+3,soham,2025-08-26,fee,-4.99,Fee
+4,soham,2025-08-29,deposit,1500.0,Deposit
+5,soham,2025-09-04,fee,-9.99,Fee
+6,soham,2025-09-05,withdraw,-1200.0,Withdrawal
+7,soham,2025-09-12,deposit,2500.0,Deposit
+8,soham,2025-09-15,fee,-4.99,Fee
+9,soham,2025-09-24,fee,-6.99,Fee
+10,soham,2025-09-25,interest,8.25,Interest
