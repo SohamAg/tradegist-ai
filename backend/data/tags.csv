@@ -1,44 +1,1181 @@
 user_id,trade_id,trade_date,tag,confidence,rationale,scope,source
-soham,4,2025-08-20,outcome_win,0.9,Win: PnL $259.20,trade,rule
-soham,5,2025-08-21,outcome_win,0.9,Win: PnL $576.00,trade,rule
-soham,9,2025-08-27,outcome_win,0.9,Win: PnL $1244.50,trade,rule
-soham,10,2025-08-28,outcome_win,0.9,Win: PnL $2495.00,trade,rule
-soham,11,2025-08-28,outcome_win,0.9,Win: PnL $256.00,trade,rule
-soham,12,2025-09-02,outcome_win,0.9,Win: PnL $145.60,trade,rule
-soham,15,2025-09-08,outcome_win,0.9,Win: PnL $1132.00,trade,rule
-soham,16,2025-09-08,outcome_win,0.9,Win: PnL $357.00,trade,rule
-soham,17,2025-09-12,outcome_win,0.9,Win: PnL $79.50,trade,rule
-soham,18,2025-09-12,outcome_win,0.9,Win: PnL $1593.00,trade,rule
-soham,20,2025-09-16,outcome_win,0.9,Win: PnL $796.50,trade,rule
-soham,21,2025-09-16,outcome_win,0.9,Win: PnL $796.50,trade,rule
-soham,22,2025-09-17,outcome_win,0.9,Win: PnL $1268.30,trade,rule
-soham,23,2025-09-17,outcome_win,0.9,Win: PnL $495.80,trade,rule
-soham,24,2025-09-17,outcome_win,0.9,Win: PnL $426.80,trade,rule
-soham,25,2025-09-18,outcome_win,0.9,Win: PnL $569.25,trade,rule
-soham,27,2025-09-24,outcome_win,0.9,Win: PnL $43.30,trade,rule
-soham,2,2025-08-19,outcome_loss,0.9,Loss: PnL $-40.40,trade,rule
-soham,3,2025-08-20,outcome_loss,0.9,Loss: PnL $-48.00,trade,rule
-soham,13,2025-09-03,outcome_loss,0.9,Loss: PnL $-90.80,trade,rule
-soham,19,2025-09-16,outcome_loss,0.9,Loss: PnL $-2.00,trade,rule
-soham,1,2025-08-15,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
-soham,6,2025-08-21,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
-soham,7,2025-08-22,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
-soham,8,2025-08-26,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
-soham,14,2025-09-05,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
-soham,26,2025-09-19,outcome_breakeven,0.8,Breakeven within tolerance,trade,rule
-soham,10,2025-08-28,large_win,0.75,Top-decile win for this user (PnL $2495.00),trade,rule
-soham,18,2025-09-12,large_win,0.75,Top-decile win for this user (PnL $1593.00),trade,rule
-soham,22,2025-09-17,large_win,0.75,Top-decile win for this user (PnL $1268.30),trade,rule
-soham,2,2025-08-19,large_loss,0.85,Worst-decile loss for this user (PnL $-40.40),trade,rule
-soham,3,2025-08-20,large_loss,0.85,Worst-decile loss for this user (PnL $-48.00),trade,rule
-soham,13,2025-09-03,large_loss,0.85,Worst-decile loss for this user (PnL $-90.80),trade,rule
-soham,4,2025-08-20,revenge_immediate,0.7,Immediate re-entry after loss,trade,rule
-soham,20,2025-09-16,revenge_immediate,0.7,Immediate re-entry after loss,trade,rule
-soham,1,2025-08-15,size_inconsistency,0.75,"Size 2.3σ above your median (notional $41,200)",trade,rule
-soham,10,2025-08-28,size_inconsistency,0.75,"Size 2.4σ above your median (notional $41,710)",trade,rule
-soham,11,2025-08-28,size_inconsistency,0.75,"Size 2.8σ above your median (notional $47,392)",trade,rule
-soham,15,2025-09-08,size_inconsistency,0.75,"Size 2.6σ above your median (notional $44,062)",trade,rule
-soham,24,2025-09-17,size_inconsistency,0.75,"Size 3.3σ above your median (notional $53,010)",trade,rule
-soham,,2025-08-20,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean PnL $-46.93,day,rule
-soham,,2025-09-03,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean PnL $-46.93,day,rule
-soham,,2025-09-16,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean PnL $-46.93,day,rule
+demo_user,5.0,2024-10-17,outcome_win,0.9,Win: PnL $18.72,trade,rule
+demo_user,6.0,2024-10-17,outcome_win,0.9,Win: PnL $32.80,trade,rule
+demo_user,11.0,2024-10-21,outcome_win,0.9,Win: PnL $68.64,trade,rule
+demo_user,14.0,2024-10-22,outcome_win,0.9,Win: PnL $87.60,trade,rule
+demo_user,15.0,2024-10-22,outcome_win,0.9,Win: PnL $18.12,trade,rule
+demo_user,16.0,2024-10-22,outcome_win,0.9,Win: PnL $13.70,trade,rule
+demo_user,18.0,2024-10-22,outcome_win,0.9,Win: PnL $263.91,trade,rule
+demo_user,19.0,2024-10-22,outcome_win,0.9,Win: PnL $69.48,trade,rule
+demo_user,21.0,2024-10-23,outcome_win,0.9,Win: PnL $404.11,trade,rule
+demo_user,22.0,2024-10-23,outcome_win,0.9,Win: PnL $6.61,trade,rule
+demo_user,23.0,2024-10-23,outcome_win,0.9,Win: PnL $13.84,trade,rule
+demo_user,27.0,2024-10-29,outcome_win,0.9,Win: PnL $261.00,trade,rule
+demo_user,28.0,2024-10-29,outcome_win,0.9,Win: PnL $22.88,trade,rule
+demo_user,29.0,2024-10-30,outcome_win,0.9,Win: PnL $163.54,trade,rule
+demo_user,31.0,2024-10-31,outcome_win,0.9,Win: PnL $100.52,trade,rule
+demo_user,32.0,2024-11-01,outcome_win,0.9,Win: PnL $65.65,trade,rule
+demo_user,33.0,2024-11-01,outcome_win,0.9,Win: PnL $233.76,trade,rule
+demo_user,34.0,2024-11-01,outcome_win,0.9,Win: PnL $1121.28,trade,rule
+demo_user,35.0,2024-11-01,outcome_win,0.9,Win: PnL $32.46,trade,rule
+demo_user,36.0,2024-11-01,outcome_win,0.9,Win: PnL $81.64,trade,rule
+demo_user,38.0,2024-11-01,outcome_win,0.9,Win: PnL $88.02,trade,rule
+demo_user,39.0,2024-11-11,outcome_win,0.9,Win: PnL $370.08,trade,rule
+demo_user,40.0,2024-11-11,outcome_win,0.9,Win: PnL $182.49,trade,rule
+demo_user,41.0,2024-11-15,outcome_win,0.9,Win: PnL $554.04,trade,rule
+demo_user,42.0,2024-11-15,outcome_win,0.9,Win: PnL $50.40,trade,rule
+demo_user,43.0,2024-11-18,outcome_win,0.9,Win: PnL $429.42,trade,rule
+demo_user,46.0,2024-11-18,outcome_win,0.9,Win: PnL $274.80,trade,rule
+demo_user,47.0,2024-11-25,outcome_win,0.9,Win: PnL $289.08,trade,rule
+demo_user,48.0,2024-11-25,outcome_win,0.9,Win: PnL $2852.46,trade,rule
+demo_user,49.0,2024-11-27,outcome_win,0.9,Win: PnL $116.16,trade,rule
+demo_user,51.0,2024-12-05,outcome_win,0.9,Win: PnL $20.20,trade,rule
+demo_user,52.0,2024-12-06,outcome_win,0.9,Win: PnL $52.64,trade,rule
+demo_user,54.0,2024-12-06,outcome_win,0.9,Win: PnL $11.34,trade,rule
+demo_user,55.0,2024-12-06,outcome_win,0.9,Win: PnL $754.00,trade,rule
+demo_user,56.0,2024-12-06,outcome_win,0.9,Win: PnL $195.12,trade,rule
+demo_user,60.0,2024-12-17,outcome_win,0.9,Win: PnL $44.96,trade,rule
+demo_user,63.0,2024-12-18,outcome_win,0.9,Win: PnL $102.72,trade,rule
+demo_user,64.0,2024-12-18,outcome_win,0.9,Win: PnL $472.64,trade,rule
+demo_user,65.0,2024-12-18,outcome_win,0.9,Win: PnL $423.40,trade,rule
+demo_user,66.0,2024-12-19,outcome_win,0.9,Win: PnL $131.22,trade,rule
+demo_user,67.0,2024-12-19,outcome_win,0.9,Win: PnL $1073.24,trade,rule
+demo_user,68.0,2024-12-19,outcome_win,0.9,Win: PnL $244.29,trade,rule
+demo_user,69.0,2024-12-19,outcome_win,0.9,Win: PnL $17.54,trade,rule
+demo_user,70.0,2024-12-19,outcome_win,0.9,Win: PnL $106.24,trade,rule
+demo_user,71.0,2024-12-19,outcome_win,0.9,Win: PnL $1061.15,trade,rule
+demo_user,73.0,2024-12-24,outcome_win,0.9,Win: PnL $7.25,trade,rule
+demo_user,74.0,2024-12-31,outcome_win,0.9,Win: PnL $45.36,trade,rule
+demo_user,77.0,2025-01-01,outcome_win,0.9,Win: PnL $2060.16,trade,rule
+demo_user,78.0,2025-01-01,outcome_win,0.9,Win: PnL $221.68,trade,rule
+demo_user,82.0,2025-01-06,outcome_win,0.9,Win: PnL $240.96,trade,rule
+demo_user,84.0,2025-01-06,outcome_win,0.9,Win: PnL $243.88,trade,rule
+demo_user,86.0,2025-01-09,outcome_win,0.9,Win: PnL $52.08,trade,rule
+demo_user,87.0,2025-01-10,outcome_win,0.9,Win: PnL $234.00,trade,rule
+demo_user,90.0,2025-01-22,outcome_win,0.9,Win: PnL $119.13,trade,rule
+demo_user,92.0,2025-01-31,outcome_win,0.9,Win: PnL $640.38,trade,rule
+demo_user,97.0,2025-02-05,outcome_win,0.9,Win: PnL $17.04,trade,rule
+demo_user,98.0,2025-02-05,outcome_win,0.9,Win: PnL $195.37,trade,rule
+demo_user,99.0,2025-02-05,outcome_win,0.9,Win: PnL $338.88,trade,rule
+demo_user,100.0,2025-02-10,outcome_win,0.9,Win: PnL $354.06,trade,rule
+demo_user,101.0,2025-02-10,outcome_win,0.9,Win: PnL $1035.30,trade,rule
+demo_user,103.0,2025-02-17,outcome_win,0.9,Win: PnL $283.92,trade,rule
+demo_user,104.0,2025-02-18,outcome_win,0.9,Win: PnL $15.16,trade,rule
+demo_user,105.0,2025-02-18,outcome_win,0.9,Win: PnL $12.00,trade,rule
+demo_user,110.0,2025-03-10,outcome_win,0.9,Win: PnL $34.50,trade,rule
+demo_user,111.0,2025-03-10,outcome_win,0.9,Win: PnL $367.00,trade,rule
+demo_user,112.0,2025-03-11,outcome_win,0.9,Win: PnL $181.80,trade,rule
+demo_user,113.0,2025-03-12,outcome_win,0.9,Win: PnL $171.39,trade,rule
+demo_user,115.0,2025-03-21,outcome_win,0.9,Win: PnL $16.94,trade,rule
+demo_user,116.0,2025-03-21,outcome_win,0.9,Win: PnL $169.77,trade,rule
+demo_user,117.0,2025-03-21,outcome_win,0.9,Win: PnL $109.40,trade,rule
+demo_user,118.0,2025-03-21,outcome_win,0.9,Win: PnL $427.83,trade,rule
+demo_user,119.0,2025-03-21,outcome_win,0.9,Win: PnL $86.37,trade,rule
+demo_user,121.0,2025-03-21,outcome_win,0.9,Win: PnL $148.50,trade,rule
+demo_user,122.0,2025-03-21,outcome_win,0.9,Win: PnL $178.14,trade,rule
+demo_user,123.0,2025-03-25,outcome_win,0.9,Win: PnL $113.40,trade,rule
+demo_user,126.0,2025-03-27,outcome_win,0.9,Win: PnL $59.04,trade,rule
+demo_user,127.0,2025-03-27,outcome_win,0.9,Win: PnL $55.00,trade,rule
+demo_user,128.0,2025-03-27,outcome_win,0.9,Win: PnL $167.20,trade,rule
+demo_user,129.0,2025-03-27,outcome_win,0.9,Win: PnL $43.84,trade,rule
+demo_user,130.0,2025-03-27,outcome_win,0.9,Win: PnL $1.54,trade,rule
+demo_user,139.0,2025-04-07,outcome_win,0.9,Win: PnL $44.50,trade,rule
+demo_user,146.0,2025-04-10,outcome_win,0.9,Win: PnL $135.60,trade,rule
+demo_user,147.0,2025-04-10,outcome_win,0.9,Win: PnL $519.35,trade,rule
+demo_user,148.0,2025-04-10,outcome_win,0.9,Win: PnL $79.82,trade,rule
+demo_user,149.0,2025-04-11,outcome_win,0.9,Win: PnL $20.90,trade,rule
+demo_user,150.0,2025-04-11,outcome_win,0.9,Win: PnL $690.23,trade,rule
+demo_user,152.0,2025-04-15,outcome_win,0.9,Win: PnL $241.45,trade,rule
+demo_user,153.0,2025-04-15,outcome_win,0.9,Win: PnL $247.20,trade,rule
+demo_user,156.0,2025-04-16,outcome_win,0.9,Win: PnL $605.02,trade,rule
+demo_user,157.0,2025-04-22,outcome_win,0.9,Win: PnL $101.08,trade,rule
+demo_user,160.0,2025-04-23,outcome_win,0.9,Win: PnL $26.88,trade,rule
+demo_user,161.0,2025-04-23,outcome_win,0.9,Win: PnL $99.55,trade,rule
+demo_user,165.0,2025-04-29,outcome_win,0.9,Win: PnL $73.56,trade,rule
+demo_user,166.0,2025-04-29,outcome_win,0.9,Win: PnL $96.84,trade,rule
+demo_user,170.0,2025-05-02,outcome_win,0.9,Win: PnL $121.98,trade,rule
+demo_user,171.0,2025-05-02,outcome_win,0.9,Win: PnL $35.84,trade,rule
+demo_user,173.0,2025-05-07,outcome_win,0.9,Win: PnL $1709.10,trade,rule
+demo_user,175.0,2025-05-09,outcome_win,0.9,Win: PnL $205.35,trade,rule
+demo_user,176.0,2025-05-13,outcome_win,0.9,Win: PnL $4.84,trade,rule
+demo_user,177.0,2025-05-13,outcome_win,0.9,Win: PnL $28.44,trade,rule
+demo_user,178.0,2025-05-13,outcome_win,0.9,Win: PnL $38.96,trade,rule
+demo_user,180.0,2025-05-13,outcome_win,0.9,Win: PnL $364.54,trade,rule
+demo_user,185.0,2025-05-16,outcome_win,0.9,Win: PnL $14.10,trade,rule
+demo_user,188.0,2025-05-16,outcome_win,0.9,Win: PnL $125.10,trade,rule
+demo_user,189.0,2025-05-19,outcome_win,0.9,Win: PnL $44.44,trade,rule
+demo_user,190.0,2025-05-19,outcome_win,0.9,Win: PnL $19.98,trade,rule
+demo_user,192.0,2025-05-19,outcome_win,0.9,Win: PnL $550.56,trade,rule
+demo_user,193.0,2025-05-19,outcome_win,0.9,Win: PnL $47.07,trade,rule
+demo_user,196.0,2025-05-26,outcome_win,0.9,Win: PnL $6.42,trade,rule
+demo_user,199.0,2025-05-28,outcome_win,0.9,Win: PnL $160.00,trade,rule
+demo_user,201.0,2025-05-28,outcome_win,0.9,Win: PnL $29.46,trade,rule
+demo_user,202.0,2025-05-30,outcome_win,0.9,Win: PnL $164.96,trade,rule
+demo_user,203.0,2025-05-30,outcome_win,0.9,Win: PnL $137.76,trade,rule
+demo_user,204.0,2025-05-30,outcome_win,0.9,Win: PnL $31.00,trade,rule
+demo_user,205.0,2025-05-30,outcome_win,0.9,Win: PnL $54.50,trade,rule
+demo_user,206.0,2025-05-30,outcome_win,0.9,Win: PnL $308.64,trade,rule
+demo_user,209.0,2025-06-03,outcome_win,0.9,Win: PnL $187.32,trade,rule
+demo_user,210.0,2025-06-03,outcome_win,0.9,Win: PnL $153.60,trade,rule
+demo_user,211.0,2025-06-03,outcome_win,0.9,Win: PnL $302.08,trade,rule
+demo_user,212.0,2025-06-03,outcome_win,0.9,Win: PnL $17.04,trade,rule
+demo_user,213.0,2025-06-03,outcome_win,0.9,Win: PnL $30.21,trade,rule
+demo_user,214.0,2025-06-03,outcome_win,0.9,Win: PnL $146.44,trade,rule
+demo_user,215.0,2025-06-03,outcome_win,0.9,Win: PnL $104.52,trade,rule
+demo_user,216.0,2025-06-03,outcome_win,0.9,Win: PnL $63.60,trade,rule
+demo_user,217.0,2025-06-03,outcome_win,0.9,Win: PnL $332.16,trade,rule
+demo_user,218.0,2025-06-03,outcome_win,0.9,Win: PnL $1043.64,trade,rule
+demo_user,220.0,2025-06-03,outcome_win,0.9,Win: PnL $2843.20,trade,rule
+demo_user,222.0,2025-06-03,outcome_win,0.9,Win: PnL $186.54,trade,rule
+demo_user,224.0,2025-06-04,outcome_win,0.9,Win: PnL $142.29,trade,rule
+demo_user,225.0,2025-06-05,outcome_win,0.9,Win: PnL $3.83,trade,rule
+demo_user,226.0,2025-06-05,outcome_win,0.9,Win: PnL $68.60,trade,rule
+demo_user,227.0,2025-06-06,outcome_win,0.9,Win: PnL $450.96,trade,rule
+demo_user,228.0,2025-06-06,outcome_win,0.9,Win: PnL $1006.53,trade,rule
+demo_user,230.0,2025-06-06,outcome_win,0.9,Win: PnL $121.90,trade,rule
+demo_user,231.0,2025-06-06,outcome_win,0.9,Win: PnL $461.88,trade,rule
+demo_user,232.0,2025-06-06,outcome_win,0.9,Win: PnL $284.49,trade,rule
+demo_user,233.0,2025-06-06,outcome_win,0.9,Win: PnL $150.67,trade,rule
+demo_user,234.0,2025-06-06,outcome_win,0.9,Win: PnL $29.25,trade,rule
+demo_user,235.0,2025-06-13,outcome_win,0.9,Win: PnL $53.40,trade,rule
+demo_user,236.0,2025-06-13,outcome_win,0.9,Win: PnL $45.08,trade,rule
+demo_user,237.0,2025-06-13,outcome_win,0.9,Win: PnL $552.50,trade,rule
+demo_user,238.0,2025-06-13,outcome_win,0.9,Win: PnL $434.70,trade,rule
+demo_user,239.0,2025-06-13,outcome_win,0.9,Win: PnL $303.43,trade,rule
+demo_user,247.0,2025-06-18,outcome_win,0.9,Win: PnL $123.90,trade,rule
+demo_user,248.0,2025-06-26,outcome_win,0.9,Win: PnL $2.79,trade,rule
+demo_user,249.0,2025-06-27,outcome_win,0.9,Win: PnL $95.15,trade,rule
+demo_user,261.0,2025-07-01,outcome_win,0.9,Win: PnL $98.99,trade,rule
+demo_user,262.0,2025-07-01,outcome_win,0.9,Win: PnL $337.12,trade,rule
+demo_user,264.0,2025-07-07,outcome_win,0.9,Win: PnL $295.10,trade,rule
+demo_user,265.0,2025-07-09,outcome_win,0.9,Win: PnL $123.36,trade,rule
+demo_user,266.0,2025-07-09,outcome_win,0.9,Win: PnL $10.57,trade,rule
+demo_user,267.0,2025-07-09,outcome_win,0.9,Win: PnL $54.56,trade,rule
+demo_user,268.0,2025-07-10,outcome_win,0.9,Win: PnL $58.02,trade,rule
+demo_user,270.0,2025-07-14,outcome_win,0.9,Win: PnL $138.38,trade,rule
+demo_user,276.0,2025-07-17,outcome_win,0.9,Win: PnL $385.00,trade,rule
+demo_user,278.0,2025-08-05,outcome_win,0.9,Win: PnL $27.20,trade,rule
+demo_user,279.0,2025-08-11,outcome_win,0.9,Win: PnL $43.26,trade,rule
+demo_user,284.0,2025-08-11,outcome_win,0.9,Win: PnL $126.73,trade,rule
+demo_user,285.0,2025-08-11,outcome_win,0.9,Win: PnL $178.60,trade,rule
+demo_user,286.0,2025-08-11,outcome_win,0.9,Win: PnL $196.77,trade,rule
+demo_user,287.0,2025-08-11,outcome_win,0.9,Win: PnL $408.24,trade,rule
+demo_user,288.0,2025-08-11,outcome_win,0.9,Win: PnL $121.04,trade,rule
+demo_user,291.0,2025-08-11,outcome_win,0.9,Win: PnL $52.30,trade,rule
+demo_user,292.0,2025-08-11,outcome_win,0.9,Win: PnL $44.94,trade,rule
+demo_user,296.0,2025-08-13,outcome_win,0.9,Win: PnL $205.39,trade,rule
+demo_user,297.0,2025-08-13,outcome_win,0.9,Win: PnL $28.98,trade,rule
+demo_user,301.0,2025-08-14,outcome_win,0.9,Win: PnL $901.32,trade,rule
+demo_user,303.0,2025-08-14,outcome_win,0.9,Win: PnL $112.20,trade,rule
+demo_user,304.0,2025-08-14,outcome_win,0.9,Win: PnL $1.82,trade,rule
+demo_user,307.0,2025-08-29,outcome_win,0.9,Win: PnL $154.96,trade,rule
+demo_user,310.0,2025-09-02,outcome_win,0.9,Win: PnL $276.30,trade,rule
+demo_user,311.0,2025-09-10,outcome_win,0.9,Win: PnL $25.13,trade,rule
+demo_user,312.0,2025-09-10,outcome_win,0.9,Win: PnL $13.92,trade,rule
+demo_user,314.0,2025-09-10,outcome_win,0.9,Win: PnL $14.82,trade,rule
+demo_user,315.0,2025-09-12,outcome_win,0.9,Win: PnL $303.52,trade,rule
+demo_user,316.0,2025-09-12,outcome_win,0.9,Win: PnL $36.96,trade,rule
+demo_user,319.0,2025-09-12,outcome_win,0.9,Win: PnL $199.85,trade,rule
+demo_user,322.0,2025-09-16,outcome_win,0.9,Win: PnL $42.28,trade,rule
+demo_user,1.0,2024-10-09,outcome_loss,0.9,Loss: PnL $-738.40,trade,rule
+demo_user,2.0,2024-10-09,outcome_loss,0.9,Loss: PnL $-77.16,trade,rule
+demo_user,3.0,2024-10-09,outcome_loss,0.9,Loss: PnL $-387.45,trade,rule
+demo_user,4.0,2024-10-17,outcome_loss,0.9,Loss: PnL $-22.56,trade,rule
+demo_user,7.0,2024-10-17,outcome_loss,0.9,Loss: PnL $-36.70,trade,rule
+demo_user,8.0,2024-10-17,outcome_loss,0.9,Loss: PnL $-538.80,trade,rule
+demo_user,9.0,2024-10-17,outcome_loss,0.9,Loss: PnL $-137.55,trade,rule
+demo_user,10.0,2024-10-21,outcome_loss,0.9,Loss: PnL $-75.40,trade,rule
+demo_user,12.0,2024-10-22,outcome_loss,0.9,Loss: PnL $-166.92,trade,rule
+demo_user,13.0,2024-10-22,outcome_loss,0.9,Loss: PnL $-81.12,trade,rule
+demo_user,17.0,2024-10-22,outcome_loss,0.9,Loss: PnL $-7.22,trade,rule
+demo_user,20.0,2024-10-22,outcome_loss,0.9,Loss: PnL $-3.66,trade,rule
+demo_user,24.0,2024-10-25,outcome_loss,0.9,Loss: PnL $-130.50,trade,rule
+demo_user,25.0,2024-10-25,outcome_loss,0.9,Loss: PnL $-63.87,trade,rule
+demo_user,26.0,2024-10-25,outcome_loss,0.9,Loss: PnL $-141.80,trade,rule
+demo_user,30.0,2024-10-31,outcome_loss,0.9,Loss: PnL $-11.91,trade,rule
+demo_user,37.0,2024-11-01,outcome_loss,0.9,Loss: PnL $-705.10,trade,rule
+demo_user,44.0,2024-11-18,outcome_loss,0.9,Loss: PnL $-89.70,trade,rule
+demo_user,45.0,2024-11-18,outcome_loss,0.9,Loss: PnL $-145.32,trade,rule
+demo_user,50.0,2024-12-05,outcome_loss,0.9,Loss: PnL $-30.00,trade,rule
+demo_user,53.0,2024-12-06,outcome_loss,0.9,Loss: PnL $-35.60,trade,rule
+demo_user,57.0,2024-12-13,outcome_loss,0.9,Loss: PnL $-121.59,trade,rule
+demo_user,58.0,2024-12-17,outcome_loss,0.9,Loss: PnL $-198.22,trade,rule
+demo_user,59.0,2024-12-17,outcome_loss,0.9,Loss: PnL $-5.59,trade,rule
+demo_user,61.0,2024-12-17,outcome_loss,0.9,Loss: PnL $-12.78,trade,rule
+demo_user,62.0,2024-12-17,outcome_loss,0.9,Loss: PnL $-381.80,trade,rule
+demo_user,72.0,2024-12-19,outcome_loss,0.9,Loss: PnL $-910.98,trade,rule
+demo_user,75.0,2024-12-31,outcome_loss,0.9,Loss: PnL $-885.00,trade,rule
+demo_user,76.0,2024-12-31,outcome_loss,0.9,Loss: PnL $-1435.59,trade,rule
+demo_user,79.0,2025-01-01,outcome_loss,0.9,Loss: PnL $-43.00,trade,rule
+demo_user,80.0,2025-01-01,outcome_loss,0.9,Loss: PnL $-107.10,trade,rule
+demo_user,81.0,2025-01-02,outcome_loss,0.9,Loss: PnL $-1159.25,trade,rule
+demo_user,83.0,2025-01-06,outcome_loss,0.9,Loss: PnL $-54.04,trade,rule
+demo_user,85.0,2025-01-06,outcome_loss,0.9,Loss: PnL $-679.65,trade,rule
+demo_user,88.0,2025-01-10,outcome_loss,0.9,Loss: PnL $-1238.30,trade,rule
+demo_user,89.0,2025-01-10,outcome_loss,0.9,Loss: PnL $-189.20,trade,rule
+demo_user,91.0,2025-01-27,outcome_loss,0.9,Loss: PnL $-96.85,trade,rule
+demo_user,93.0,2025-02-04,outcome_loss,0.9,Loss: PnL $-67.32,trade,rule
+demo_user,94.0,2025-02-05,outcome_loss,0.9,Loss: PnL $-10.30,trade,rule
+demo_user,95.0,2025-02-05,outcome_loss,0.9,Loss: PnL $-311.80,trade,rule
+demo_user,96.0,2025-02-05,outcome_loss,0.9,Loss: PnL $-31.75,trade,rule
+demo_user,102.0,2025-02-11,outcome_loss,0.9,Loss: PnL $-13.10,trade,rule
+demo_user,106.0,2025-02-18,outcome_loss,0.9,Loss: PnL $-468.52,trade,rule
+demo_user,107.0,2025-02-25,outcome_loss,0.9,Loss: PnL $-394.96,trade,rule
+demo_user,108.0,2025-02-26,outcome_loss,0.9,Loss: PnL $-54.64,trade,rule
+demo_user,109.0,2025-03-10,outcome_loss,0.9,Loss: PnL $-87.99,trade,rule
+demo_user,114.0,2025-03-21,outcome_loss,0.9,Loss: PnL $-396.10,trade,rule
+demo_user,120.0,2025-03-21,outcome_loss,0.9,Loss: PnL $-25.24,trade,rule
+demo_user,124.0,2025-03-25,outcome_loss,0.9,Loss: PnL $-526.23,trade,rule
+demo_user,125.0,2025-03-27,outcome_loss,0.9,Loss: PnL $-40.14,trade,rule
+demo_user,131.0,2025-03-27,outcome_loss,0.9,Loss: PnL $-13.05,trade,rule
+demo_user,132.0,2025-03-27,outcome_loss,0.9,Loss: PnL $-250.61,trade,rule
+demo_user,133.0,2025-04-07,outcome_loss,0.9,Loss: PnL $-514.80,trade,rule
+demo_user,134.0,2025-04-07,outcome_loss,0.9,Loss: PnL $-9.58,trade,rule
+demo_user,135.0,2025-04-07,outcome_loss,0.9,Loss: PnL $-213.40,trade,rule
+demo_user,136.0,2025-04-07,outcome_loss,0.9,Loss: PnL $-202.13,trade,rule
+demo_user,137.0,2025-04-07,outcome_loss,0.9,Loss: PnL $-44.16,trade,rule
+demo_user,138.0,2025-04-07,outcome_loss,0.9,Loss: PnL $-19.32,trade,rule
+demo_user,140.0,2025-04-08,outcome_loss,0.9,Loss: PnL $-10.14,trade,rule
+demo_user,141.0,2025-04-08,outcome_loss,0.9,Loss: PnL $-221.76,trade,rule
+demo_user,142.0,2025-04-08,outcome_loss,0.9,Loss: PnL $-542.45,trade,rule
+demo_user,143.0,2025-04-08,outcome_loss,0.9,Loss: PnL $-90.96,trade,rule
+demo_user,144.0,2025-04-08,outcome_loss,0.9,Loss: PnL $-122.23,trade,rule
+demo_user,145.0,2025-04-10,outcome_loss,0.9,Loss: PnL $-365.40,trade,rule
+demo_user,151.0,2025-04-15,outcome_loss,0.9,Loss: PnL $-46.44,trade,rule
+demo_user,154.0,2025-04-16,outcome_loss,0.9,Loss: PnL $-525.55,trade,rule
+demo_user,155.0,2025-04-16,outcome_loss,0.9,Loss: PnL $-49.32,trade,rule
+demo_user,158.0,2025-04-22,outcome_loss,0.9,Loss: PnL $-64.40,trade,rule
+demo_user,159.0,2025-04-22,outcome_loss,0.9,Loss: PnL $-77.63,trade,rule
+demo_user,162.0,2025-04-29,outcome_loss,0.9,Loss: PnL $-99.36,trade,rule
+demo_user,163.0,2025-04-29,outcome_loss,0.9,Loss: PnL $-16.23,trade,rule
+demo_user,164.0,2025-04-29,outcome_loss,0.9,Loss: PnL $-55.20,trade,rule
+demo_user,167.0,2025-04-29,outcome_loss,0.9,Loss: PnL $-4.38,trade,rule
+demo_user,168.0,2025-04-29,outcome_loss,0.9,Loss: PnL $-100.88,trade,rule
+demo_user,169.0,2025-05-01,outcome_loss,0.9,Loss: PnL $-225.99,trade,rule
+demo_user,172.0,2025-05-02,outcome_loss,0.9,Loss: PnL $-49.91,trade,rule
+demo_user,174.0,2025-05-07,outcome_loss,0.9,Loss: PnL $-163.40,trade,rule
+demo_user,179.0,2025-05-13,outcome_loss,0.9,Loss: PnL $-36.57,trade,rule
+demo_user,181.0,2025-05-13,outcome_loss,0.9,Loss: PnL $-142.08,trade,rule
+demo_user,182.0,2025-05-16,outcome_loss,0.9,Loss: PnL $-100.60,trade,rule
+demo_user,183.0,2025-05-16,outcome_loss,0.9,Loss: PnL $-89.96,trade,rule
+demo_user,184.0,2025-05-16,outcome_loss,0.9,Loss: PnL $-70.42,trade,rule
+demo_user,186.0,2025-05-16,outcome_loss,0.9,Loss: PnL $-125.82,trade,rule
+demo_user,187.0,2025-05-16,outcome_loss,0.9,Loss: PnL $-129.72,trade,rule
+demo_user,191.0,2025-05-19,outcome_loss,0.9,Loss: PnL $-229.14,trade,rule
+demo_user,194.0,2025-05-23,outcome_loss,0.9,Loss: PnL $-29.60,trade,rule
+demo_user,195.0,2025-05-23,outcome_loss,0.9,Loss: PnL $-39.32,trade,rule
+demo_user,197.0,2025-05-26,outcome_loss,0.9,Loss: PnL $-355.14,trade,rule
+demo_user,198.0,2025-05-26,outcome_loss,0.9,Loss: PnL $-19.92,trade,rule
+demo_user,200.0,2025-05-28,outcome_loss,0.9,Loss: PnL $-332.55,trade,rule
+demo_user,207.0,2025-05-30,outcome_loss,0.9,Loss: PnL $-44.78,trade,rule
+demo_user,208.0,2025-05-30,outcome_loss,0.9,Loss: PnL $-199.32,trade,rule
+demo_user,219.0,2025-06-03,outcome_loss,0.9,Loss: PnL $-33.50,trade,rule
+demo_user,221.0,2025-06-03,outcome_loss,0.9,Loss: PnL $-205.92,trade,rule
+demo_user,223.0,2025-06-03,outcome_loss,0.9,Loss: PnL $-283.40,trade,rule
+demo_user,229.0,2025-06-06,outcome_loss,0.9,Loss: PnL $-108.94,trade,rule
+demo_user,240.0,2025-06-13,outcome_loss,0.9,Loss: PnL $-3.52,trade,rule
+demo_user,241.0,2025-06-13,outcome_loss,0.9,Loss: PnL $-118.92,trade,rule
+demo_user,242.0,2025-06-13,outcome_loss,0.9,Loss: PnL $-82.15,trade,rule
+demo_user,243.0,2025-06-13,outcome_loss,0.9,Loss: PnL $-154.00,trade,rule
+demo_user,244.0,2025-06-13,outcome_loss,0.9,Loss: PnL $-337.44,trade,rule
+demo_user,245.0,2025-06-16,outcome_loss,0.9,Loss: PnL $-90.90,trade,rule
+demo_user,246.0,2025-06-16,outcome_loss,0.9,Loss: PnL $-425.25,trade,rule
+demo_user,250.0,2025-06-27,outcome_loss,0.9,Loss: PnL $-62.95,trade,rule
+demo_user,251.0,2025-06-27,outcome_loss,0.9,Loss: PnL $-34.56,trade,rule
+demo_user,252.0,2025-06-27,outcome_loss,0.9,Loss: PnL $-125.95,trade,rule
+demo_user,253.0,2025-06-27,outcome_loss,0.9,Loss: PnL $-101.15,trade,rule
+demo_user,254.0,2025-06-27,outcome_loss,0.9,Loss: PnL $-292.68,trade,rule
+demo_user,255.0,2025-06-27,outcome_loss,0.9,Loss: PnL $-994.75,trade,rule
+demo_user,256.0,2025-06-27,outcome_loss,0.9,Loss: PnL $-7.00,trade,rule
+demo_user,257.0,2025-06-27,outcome_loss,0.9,Loss: PnL $-701.25,trade,rule
+demo_user,258.0,2025-06-27,outcome_loss,0.9,Loss: PnL $-51.56,trade,rule
+demo_user,259.0,2025-06-27,outcome_loss,0.9,Loss: PnL $-5437.37,trade,rule
+demo_user,260.0,2025-06-27,outcome_loss,0.9,Loss: PnL $-478.26,trade,rule
+demo_user,263.0,2025-07-01,outcome_loss,0.9,Loss: PnL $-305.36,trade,rule
+demo_user,269.0,2025-07-10,outcome_loss,0.9,Loss: PnL $-83.94,trade,rule
+demo_user,271.0,2025-07-14,outcome_loss,0.9,Loss: PnL $-148.07,trade,rule
+demo_user,272.0,2025-07-14,outcome_loss,0.9,Loss: PnL $-23.10,trade,rule
+demo_user,273.0,2025-07-14,outcome_loss,0.9,Loss: PnL $-137.30,trade,rule
+demo_user,274.0,2025-07-14,outcome_loss,0.9,Loss: PnL $-17.40,trade,rule
+demo_user,275.0,2025-07-15,outcome_loss,0.9,Loss: PnL $-267.26,trade,rule
+demo_user,277.0,2025-07-17,outcome_loss,0.9,Loss: PnL $-3.12,trade,rule
+demo_user,280.0,2025-08-11,outcome_loss,0.9,Loss: PnL $-214.20,trade,rule
+demo_user,281.0,2025-08-11,outcome_loss,0.9,Loss: PnL $-102.90,trade,rule
+demo_user,282.0,2025-08-11,outcome_loss,0.9,Loss: PnL $-114.58,trade,rule
+demo_user,283.0,2025-08-11,outcome_loss,0.9,Loss: PnL $-67.05,trade,rule
+demo_user,289.0,2025-08-11,outcome_loss,0.9,Loss: PnL $-180.84,trade,rule
+demo_user,290.0,2025-08-11,outcome_loss,0.9,Loss: PnL $-37.32,trade,rule
+demo_user,293.0,2025-08-13,outcome_loss,0.9,Loss: PnL $-5.72,trade,rule
+demo_user,294.0,2025-08-13,outcome_loss,0.9,Loss: PnL $-7.32,trade,rule
+demo_user,295.0,2025-08-13,outcome_loss,0.9,Loss: PnL $-53.24,trade,rule
+demo_user,298.0,2025-08-13,outcome_loss,0.9,Loss: PnL $-9.87,trade,rule
+demo_user,299.0,2025-08-13,outcome_loss,0.9,Loss: PnL $-388.45,trade,rule
+demo_user,300.0,2025-08-13,outcome_loss,0.9,Loss: PnL $-60.48,trade,rule
+demo_user,302.0,2025-08-14,outcome_loss,0.9,Loss: PnL $-2.87,trade,rule
+demo_user,305.0,2025-08-27,outcome_loss,0.9,Loss: PnL $-60.42,trade,rule
+demo_user,306.0,2025-08-27,outcome_loss,0.9,Loss: PnL $-489.70,trade,rule
+demo_user,308.0,2025-09-01,outcome_loss,0.9,Loss: PnL $-22.42,trade,rule
+demo_user,309.0,2025-09-01,outcome_loss,0.9,Loss: PnL $-265.56,trade,rule
+demo_user,313.0,2025-09-10,outcome_loss,0.9,Loss: PnL $-32.00,trade,rule
+demo_user,317.0,2025-09-12,outcome_loss,0.9,Loss: PnL $-14.65,trade,rule
+demo_user,318.0,2025-09-12,outcome_loss,0.9,Loss: PnL $-26.24,trade,rule
+demo_user,320.0,2025-09-12,outcome_loss,0.9,Loss: PnL $-11.54,trade,rule
+demo_user,321.0,2025-09-16,outcome_loss,0.9,Loss: PnL $-35.58,trade,rule
+demo_user,323.0,2025-09-16,outcome_loss,0.9,Loss: PnL $-3748.00,trade,rule
+demo_user,324.0,2025-09-16,outcome_loss,0.9,Loss: PnL $-448.60,trade,rule
+demo_user,325.0,2025-09-19,outcome_loss,0.9,Loss: PnL $-416.16,trade,rule
+demo_user,326.0,2025-09-19,outcome_loss,0.9,Loss: PnL $-1255.02,trade,rule
+demo_user,21.0,2024-10-23,large_win,0.75,Top-decile win (PnL $404.11),trade,rule
+demo_user,34.0,2024-11-01,large_win,0.75,Top-decile win (PnL $1121.28),trade,rule
+demo_user,39.0,2024-11-11,large_win,0.75,Top-decile win (PnL $370.08),trade,rule
+demo_user,41.0,2024-11-15,large_win,0.75,Top-decile win (PnL $554.04),trade,rule
+demo_user,43.0,2024-11-18,large_win,0.75,Top-decile win (PnL $429.42),trade,rule
+demo_user,48.0,2024-11-25,large_win,0.75,Top-decile win (PnL $2852.46),trade,rule
+demo_user,55.0,2024-12-06,large_win,0.75,Top-decile win (PnL $754.00),trade,rule
+demo_user,64.0,2024-12-18,large_win,0.75,Top-decile win (PnL $472.64),trade,rule
+demo_user,65.0,2024-12-18,large_win,0.75,Top-decile win (PnL $423.40),trade,rule
+demo_user,67.0,2024-12-19,large_win,0.75,Top-decile win (PnL $1073.24),trade,rule
+demo_user,71.0,2024-12-19,large_win,0.75,Top-decile win (PnL $1061.15),trade,rule
+demo_user,77.0,2025-01-01,large_win,0.75,Top-decile win (PnL $2060.16),trade,rule
+demo_user,92.0,2025-01-31,large_win,0.75,Top-decile win (PnL $640.38),trade,rule
+demo_user,100.0,2025-02-10,large_win,0.75,Top-decile win (PnL $354.06),trade,rule
+demo_user,101.0,2025-02-10,large_win,0.75,Top-decile win (PnL $1035.30),trade,rule
+demo_user,111.0,2025-03-10,large_win,0.75,Top-decile win (PnL $367.00),trade,rule
+demo_user,118.0,2025-03-21,large_win,0.75,Top-decile win (PnL $427.83),trade,rule
+demo_user,147.0,2025-04-10,large_win,0.75,Top-decile win (PnL $519.35),trade,rule
+demo_user,150.0,2025-04-11,large_win,0.75,Top-decile win (PnL $690.23),trade,rule
+demo_user,156.0,2025-04-16,large_win,0.75,Top-decile win (PnL $605.02),trade,rule
+demo_user,173.0,2025-05-07,large_win,0.75,Top-decile win (PnL $1709.10),trade,rule
+demo_user,180.0,2025-05-13,large_win,0.75,Top-decile win (PnL $364.54),trade,rule
+demo_user,192.0,2025-05-19,large_win,0.75,Top-decile win (PnL $550.56),trade,rule
+demo_user,218.0,2025-06-03,large_win,0.75,Top-decile win (PnL $1043.64),trade,rule
+demo_user,220.0,2025-06-03,large_win,0.75,Top-decile win (PnL $2843.20),trade,rule
+demo_user,227.0,2025-06-06,large_win,0.75,Top-decile win (PnL $450.96),trade,rule
+demo_user,228.0,2025-06-06,large_win,0.75,Top-decile win (PnL $1006.53),trade,rule
+demo_user,231.0,2025-06-06,large_win,0.75,Top-decile win (PnL $461.88),trade,rule
+demo_user,237.0,2025-06-13,large_win,0.75,Top-decile win (PnL $552.50),trade,rule
+demo_user,238.0,2025-06-13,large_win,0.75,Top-decile win (PnL $434.70),trade,rule
+demo_user,276.0,2025-07-17,large_win,0.75,Top-decile win (PnL $385.00),trade,rule
+demo_user,287.0,2025-08-11,large_win,0.75,Top-decile win (PnL $408.24),trade,rule
+demo_user,301.0,2025-08-14,large_win,0.75,Top-decile win (PnL $901.32),trade,rule
+demo_user,1.0,2024-10-09,large_loss,0.85,Worst-decile loss (PnL $-738.40),trade,rule
+demo_user,3.0,2024-10-09,large_loss,0.85,Worst-decile loss (PnL $-387.45),trade,rule
+demo_user,8.0,2024-10-17,large_loss,0.85,Worst-decile loss (PnL $-538.80),trade,rule
+demo_user,37.0,2024-11-01,large_loss,0.85,Worst-decile loss (PnL $-705.10),trade,rule
+demo_user,62.0,2024-12-17,large_loss,0.85,Worst-decile loss (PnL $-381.80),trade,rule
+demo_user,72.0,2024-12-19,large_loss,0.85,Worst-decile loss (PnL $-910.98),trade,rule
+demo_user,75.0,2024-12-31,large_loss,0.85,Worst-decile loss (PnL $-885.00),trade,rule
+demo_user,76.0,2024-12-31,large_loss,0.85,Worst-decile loss (PnL $-1435.59),trade,rule
+demo_user,81.0,2025-01-02,large_loss,0.85,Worst-decile loss (PnL $-1159.25),trade,rule
+demo_user,85.0,2025-01-06,large_loss,0.85,Worst-decile loss (PnL $-679.65),trade,rule
+demo_user,88.0,2025-01-10,large_loss,0.85,Worst-decile loss (PnL $-1238.30),trade,rule
+demo_user,106.0,2025-02-18,large_loss,0.85,Worst-decile loss (PnL $-468.52),trade,rule
+demo_user,107.0,2025-02-25,large_loss,0.85,Worst-decile loss (PnL $-394.96),trade,rule
+demo_user,114.0,2025-03-21,large_loss,0.85,Worst-decile loss (PnL $-396.10),trade,rule
+demo_user,124.0,2025-03-25,large_loss,0.85,Worst-decile loss (PnL $-526.23),trade,rule
+demo_user,133.0,2025-04-07,large_loss,0.85,Worst-decile loss (PnL $-514.80),trade,rule
+demo_user,142.0,2025-04-08,large_loss,0.85,Worst-decile loss (PnL $-542.45),trade,rule
+demo_user,145.0,2025-04-10,large_loss,0.85,Worst-decile loss (PnL $-365.40),trade,rule
+demo_user,154.0,2025-04-16,large_loss,0.85,Worst-decile loss (PnL $-525.55),trade,rule
+demo_user,197.0,2025-05-26,large_loss,0.85,Worst-decile loss (PnL $-355.14),trade,rule
+demo_user,200.0,2025-05-28,large_loss,0.85,Worst-decile loss (PnL $-332.55),trade,rule
+demo_user,244.0,2025-06-13,large_loss,0.85,Worst-decile loss (PnL $-337.44),trade,rule
+demo_user,246.0,2025-06-16,large_loss,0.85,Worst-decile loss (PnL $-425.25),trade,rule
+demo_user,255.0,2025-06-27,large_loss,0.85,Worst-decile loss (PnL $-994.75),trade,rule
+demo_user,257.0,2025-06-27,large_loss,0.85,Worst-decile loss (PnL $-701.25),trade,rule
+demo_user,259.0,2025-06-27,large_loss,0.85,Worst-decile loss (PnL $-5437.37),trade,rule
+demo_user,260.0,2025-06-27,large_loss,0.85,Worst-decile loss (PnL $-478.26),trade,rule
+demo_user,299.0,2025-08-13,large_loss,0.85,Worst-decile loss (PnL $-388.45),trade,rule
+demo_user,306.0,2025-08-27,large_loss,0.85,Worst-decile loss (PnL $-489.70),trade,rule
+demo_user,323.0,2025-09-16,large_loss,0.85,Worst-decile loss (PnL $-3748.00),trade,rule
+demo_user,324.0,2025-09-16,large_loss,0.85,Worst-decile loss (PnL $-448.60),trade,rule
+demo_user,325.0,2025-09-19,large_loss,0.85,Worst-decile loss (PnL $-416.16),trade,rule
+demo_user,326.0,2025-09-19,large_loss,0.85,Worst-decile loss (PnL $-1255.02),trade,rule
+demo_user,2.0,2024-10-09,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,3.0,2024-10-09,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,5.0,2024-10-17,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,8.0,2024-10-17,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,9.0,2024-10-17,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,11.0,2024-10-21,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,13.0,2024-10-22,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,14.0,2024-10-22,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,18.0,2024-10-22,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,25.0,2024-10-25,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,26.0,2024-10-25,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,31.0,2024-10-31,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,38.0,2024-11-01,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,45.0,2024-11-18,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,46.0,2024-11-18,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,51.0,2024-12-05,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,54.0,2024-12-06,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,59.0,2024-12-17,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,60.0,2024-12-17,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,62.0,2024-12-17,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,76.0,2024-12-31,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,80.0,2025-01-01,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,84.0,2025-01-06,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,89.0,2025-01-10,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,95.0,2025-02-05,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,96.0,2025-02-05,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,97.0,2025-02-05,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,110.0,2025-03-10,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,115.0,2025-03-21,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,121.0,2025-03-21,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,126.0,2025-03-27,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,132.0,2025-03-27,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,134.0,2025-04-07,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,135.0,2025-04-07,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,136.0,2025-04-07,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,137.0,2025-04-07,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,138.0,2025-04-07,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,139.0,2025-04-07,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,141.0,2025-04-08,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,142.0,2025-04-08,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,143.0,2025-04-08,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,144.0,2025-04-08,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,146.0,2025-04-10,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,152.0,2025-04-15,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,155.0,2025-04-16,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,156.0,2025-04-16,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,159.0,2025-04-22,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,163.0,2025-04-29,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,164.0,2025-04-29,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,165.0,2025-04-29,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,168.0,2025-04-29,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,180.0,2025-05-13,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,183.0,2025-05-16,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,184.0,2025-05-16,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,185.0,2025-05-16,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,187.0,2025-05-16,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,188.0,2025-05-16,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,192.0,2025-05-19,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,195.0,2025-05-23,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,198.0,2025-05-26,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,201.0,2025-05-28,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,208.0,2025-05-30,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,220.0,2025-06-03,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,222.0,2025-06-03,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,230.0,2025-06-06,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,241.0,2025-06-13,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,242.0,2025-06-13,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,243.0,2025-06-13,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,244.0,2025-06-13,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,246.0,2025-06-16,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,251.0,2025-06-27,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,252.0,2025-06-27,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,253.0,2025-06-27,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,254.0,2025-06-27,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,255.0,2025-06-27,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,256.0,2025-06-27,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,257.0,2025-06-27,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,258.0,2025-06-27,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,259.0,2025-06-27,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,260.0,2025-06-27,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,272.0,2025-07-14,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,273.0,2025-07-14,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,274.0,2025-07-14,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,281.0,2025-08-11,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,282.0,2025-08-11,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,283.0,2025-08-11,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,284.0,2025-08-11,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,290.0,2025-08-11,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,291.0,2025-08-11,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,294.0,2025-08-13,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,295.0,2025-08-13,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,296.0,2025-08-13,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,299.0,2025-08-13,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,300.0,2025-08-13,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,303.0,2025-08-14,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,306.0,2025-08-27,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,309.0,2025-09-01,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,314.0,2025-09-10,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,318.0,2025-09-12,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,319.0,2025-09-12,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,322.0,2025-09-16,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,324.0,2025-09-16,revenge_immediate,0.9,Immediate re-entry after loss (same ticker),trade,rule
+demo_user,326.0,2025-09-19,revenge_immediate,0.75,Immediate re-entry after loss,trade,rule
+demo_user,18.0,2024-10-22,size_inconsistency,0.75,"Size 2.9σ above median (notional $9,455)",trade,rule
+demo_user,34.0,2024-11-01,size_inconsistency,0.75,"Size 8.6σ above median (notional $23,165)",trade,rule
+demo_user,37.0,2024-11-01,size_inconsistency,0.75,"Size 3.3σ above median (notional $10,476)",trade,rule
+demo_user,41.0,2024-11-15,size_inconsistency,0.75,"Size 7.4σ above median (notional $20,202)",trade,rule
+demo_user,46.0,2024-11-18,size_inconsistency,0.75,"Size 4.2σ above median (notional $12,549)",trade,rule
+demo_user,48.0,2024-11-25,size_inconsistency,0.75,"Size 13.4σ above median (notional $34,717)",trade,rule
+demo_user,55.0,2024-12-06,size_inconsistency,0.75,"Size 2.0σ above median (notional $7,355)",trade,rule
+demo_user,56.0,2024-12-06,size_inconsistency,0.75,"Size 2.9σ above median (notional $9,412)",trade,rule
+demo_user,65.0,2024-12-18,size_inconsistency,0.75,"Size 2.9σ above median (notional $9,498)",trade,rule
+demo_user,67.0,2024-12-19,size_inconsistency,0.75,"Size 2.4σ above median (notional $8,238)",trade,rule
+demo_user,71.0,2024-12-19,size_inconsistency,0.75,"Size 3.1σ above median (notional $9,935)",trade,rule
+demo_user,75.0,2024-12-31,size_inconsistency,0.75,"Size 4.0σ above median (notional $12,061)",trade,rule
+demo_user,76.0,2024-12-31,size_inconsistency,0.75,"Size 6.8σ above median (notional $18,761)",trade,rule
+demo_user,77.0,2025-01-01,size_inconsistency,0.75,"Size 8.0σ above median (notional $21,771)",trade,rule
+demo_user,79.0,2025-01-01,size_inconsistency,0.75,"Size 2.3σ above median (notional $8,094)",trade,rule
+demo_user,81.0,2025-01-02,size_inconsistency,0.75,"Size 3.9σ above median (notional $12,026)",trade,rule
+demo_user,88.0,2025-01-10,size_inconsistency,0.75,"Size 2.9σ above median (notional $9,389)",trade,rule
+demo_user,89.0,2025-01-10,size_inconsistency,0.75,"Size 3.3σ above median (notional $10,583)",trade,rule
+demo_user,92.0,2025-01-31,size_inconsistency,0.75,"Size 2.6σ above median (notional $8,889)",trade,rule
+demo_user,96.0,2025-02-05,size_inconsistency,0.75,"Size 3.9σ above median (notional $12,026)",trade,rule
+demo_user,106.0,2025-02-18,size_inconsistency,0.75,"Size 2.3σ above median (notional $8,178)",trade,rule
+demo_user,109.0,2025-03-10,size_inconsistency,0.75,"Size 2.1σ above median (notional $7,557)",trade,rule
+demo_user,124.0,2025-03-25,size_inconsistency,0.75,"Size 4.3σ above median (notional $12,988)",trade,rule
+demo_user,133.0,2025-04-07,size_inconsistency,0.75,"Size 6.6σ above median (notional $18,360)",trade,rule
+demo_user,144.0,2025-04-08,size_inconsistency,0.75,"Size 2.6σ above median (notional $8,829)",trade,rule
+demo_user,156.0,2025-04-16,size_inconsistency,0.75,"Size 4.6σ above median (notional $13,503)",trade,rule
+demo_user,173.0,2025-05-07,size_inconsistency,0.75,"Size 4.8σ above median (notional $14,022)",trade,rule
+demo_user,186.0,2025-05-16,size_inconsistency,0.75,"Size 2.8σ above median (notional $9,286)",trade,rule
+demo_user,218.0,2025-06-03,size_inconsistency,0.75,"Size 2.1σ above median (notional $7,646)",trade,rule
+demo_user,220.0,2025-06-03,size_inconsistency,0.75,"Size 8.9σ above median (notional $23,894)",trade,rule
+demo_user,228.0,2025-06-06,size_inconsistency,0.75,"Size 3.6σ above median (notional $11,165)",trade,rule
+demo_user,229.0,2025-06-06,size_inconsistency,0.75,"Size 4.1σ above median (notional $12,468)",trade,rule
+demo_user,232.0,2025-06-06,size_inconsistency,0.75,"Size 4.9σ above median (notional $14,313)",trade,rule
+demo_user,254.0,2025-06-27,size_inconsistency,0.75,"Size 2.7σ above median (notional $9,076)",trade,rule
+demo_user,255.0,2025-06-27,size_inconsistency,0.75,"Size 3.9σ above median (notional $12,018)",trade,rule
+demo_user,259.0,2025-06-27,size_inconsistency,0.75,"Size 19.0σ above median (notional $48,175)",trade,rule
+demo_user,289.0,2025-08-11,size_inconsistency,0.75,"Size 7.6σ above median (notional $20,892)",trade,rule
+demo_user,296.0,2025-08-13,size_inconsistency,0.75,"Size 2.1σ above median (notional $7,702)",trade,rule
+demo_user,299.0,2025-08-13,size_inconsistency,0.75,"Size 2.6σ above median (notional $8,822)",trade,rule
+demo_user,301.0,2025-08-14,size_inconsistency,0.75,"Size 2.0σ above median (notional $7,429)",trade,rule
+demo_user,303.0,2025-08-14,size_inconsistency,0.75,"Size 2.2σ above median (notional $7,787)",trade,rule
+demo_user,306.0,2025-08-27,size_inconsistency,0.75,"Size 11.2σ above median (notional $29,523)",trade,rule
+demo_user,323.0,2025-09-16,size_inconsistency,0.75,"Size 11.8σ above median (notional $30,983)",trade,rule
+demo_user,326.0,2025-09-19,size_inconsistency,0.75,"Size 4.7σ above median (notional $13,901)",trade,rule
+demo_user,,2024-10-17,overtrading_day,0.8,6 trades; day PnL $-684.09,day,rule
+demo_user,,2024-10-22,overtrading_day,0.8,9 trades; day PnL $193.89,day,rule
+demo_user,,2024-11-01,overtrading_day,0.8,7 trades; day PnL $917.71,day,rule
+demo_user,,2024-12-06,overtrading_day,0.8,5 trades; day PnL $977.50,day,rule
+demo_user,,2024-12-17,overtrading_day,0.8,5 trades; day PnL $-553.43,day,rule
+demo_user,,2024-12-19,overtrading_day,0.8,7 trades; day PnL $1722.70,day,rule
+demo_user,,2025-02-05,overtrading_day,0.8,6 trades; day PnL $197.44,day,rule
+demo_user,,2025-03-21,overtrading_day,0.8,9 trades; day PnL $715.61,day,rule
+demo_user,,2025-03-27,overtrading_day,0.8,8 trades; day PnL $22.82,day,rule
+demo_user,,2025-04-07,overtrading_day,0.8,7 trades; day PnL $-958.89,day,rule
+demo_user,,2025-04-08,overtrading_day,0.8,5 trades; day PnL $-987.54,day,rule
+demo_user,,2025-04-29,overtrading_day,0.8,7 trades; day PnL $-105.65,day,rule
+demo_user,,2025-05-13,overtrading_day,0.8,6 trades; day PnL $258.13,day,rule
+demo_user,,2025-05-16,overtrading_day,0.8,7 trades; day PnL $-377.32,day,rule
+demo_user,,2025-05-19,overtrading_day,0.8,5 trades; day PnL $432.91,day,rule
+demo_user,,2025-05-30,overtrading_day,0.8,7 trades; day PnL $452.76,day,rule
+demo_user,,2025-06-03,overtrading_day,0.8,15 trades; day PnL $4887.53,day,rule
+demo_user,,2025-06-06,overtrading_day,0.8,8 trades; day PnL $2396.74,day,rule
+demo_user,,2025-06-13,overtrading_day,0.8,10 trades; day PnL $693.08,day,rule
+demo_user,,2025-06-27,overtrading_day,0.8,12 trades; day PnL $-8192.33,day,rule
+demo_user,,2025-07-14,overtrading_day,0.8,5 trades; day PnL $-187.49,day,rule
+demo_user,,2025-08-11,overtrading_day,0.8,14 trades; day PnL $454.99,day,rule
+demo_user,,2025-08-13,overtrading_day,0.8,8 trades; day PnL $-290.71,day,rule
+demo_user,,2025-09-12,overtrading_day,0.8,6 trades; day PnL $487.90,day,rule
+demo_user,,2024-10-09,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-10-17,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-10-21,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-10-22,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-10-25,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-10-31,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-11-01,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-11-18,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-12-05,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-12-06,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-12-17,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-12-31,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-01-01,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-01-06,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-01-10,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-02-05,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-03-10,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-03-21,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-03-27,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-04-07,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-04-08,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-04-10,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-04-15,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-04-16,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-04-22,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-04-29,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-05-13,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-05-16,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-05-19,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-05-23,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-05-26,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-05-28,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-05-30,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-06-03,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-06-06,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-06-13,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-06-16,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-06-27,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-07-14,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-08-11,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-08-13,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-08-14,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-08-27,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-09-01,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-09-10,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-09-12,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-09-16,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-09-19,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2024-12-19,revenge_day,0.75,Loss-anchored high-activity episode,day,rule
+demo_user,,2025-03-27,chop_day,0.6,High activity (8) with flat PnL $22.82,day,rule
+demo_user,,2024-10-22,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2024-11-01,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2024-11-18,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2024-12-06,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2024-12-17,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2024-12-19,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2024-12-19,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2024-12-24,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2024-12-31,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-01-01,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-01-02,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-01-06,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-01-10,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-01-27,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-02-05,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-02-05,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-02-18,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-03-21,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-03-21,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-03-25,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-03-27,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-03-27,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-04-08,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-04-11,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-04-15,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-04-16,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-04-22,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-04-29,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-05-02,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-05-07,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-05-07,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-05-13,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-05-13,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-05-16,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-05-19,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-05-19,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-05-28,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-05-28,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-06-03,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-06-04,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-06-06,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-06-13,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-06-18,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-06-27,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-06-27,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-07-01,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-07-07,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-07-09,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-07-09,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-07-10,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-07-17,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-08-13,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2025-08-13,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-09-10,ticker_bias_lifetime,0.8,"Ticker TSLA negative expectancy (n=31, avg $-48.00, total $-1487.96)",day,rule
+demo_user,,2025-09-19,ticker_bias_lifetime,0.8,"Ticker NVDA negative expectancy (n=67, avg $-123.03, total $-8242.95)",day,rule
+demo_user,,2024-10-09,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-10-09,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2024-10-17,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-10-17,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2024-10-22,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2024-10-22,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2024-10-23,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-10-25,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2024-10-29,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-10-30,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-11-01,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2024-11-01,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2024-11-15,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-11-18,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-11-18,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2024-11-18,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2024-11-25,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2024-11-27,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-12-05,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-12-06,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-12-06,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2024-12-13,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-12-17,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-12-17,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2024-12-18,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2024-12-18,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2024-12-19,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2024-12-19,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2024-12-19,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2024-12-24,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2024-12-31,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-01-01,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-01-02,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-01-06,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-01-06,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-01-06,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-01-09,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-01-10,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-01-10,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-01-22,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-01-27,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-01-31,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-02-04,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-02-05,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-02-05,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-02-05,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-02-10,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-02-11,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-02-18,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-02-25,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-03-10,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-03-21,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-03-21,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-03-21,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-03-25,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-03-25,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-03-27,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-03-27,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-03-27,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-03-27,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-04-07,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-04-08,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-04-10,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-04-11,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-04-15,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-04-16,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-04-16,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-04-22,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-04-22,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-04-29,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-04-29,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-05-02,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-05-02,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-05-07,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-05-07,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-05-13,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-05-13,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-05-13,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-05-16,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-05-19,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-05-19,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-05-19,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-05-26,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-05-26,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-05-28,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-05-28,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-05-30,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-05-30,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-06-03,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-06-04,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-06-05,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-06-06,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-06-13,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-06-13,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-06-13,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-06-16,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-06-18,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-06-27,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-06-27,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-07-01,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-07-01,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-07-07,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-07-09,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-07-09,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-07-09,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-07-10,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-07-14,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-07-14,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-07-15,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-07-17,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-08-11,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-08-13,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-08-13,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-08-13,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,,2025-08-13,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-08-27,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-08-29,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-09-01,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-09-10,ticker_bias_recent,0.7,Ticker TSLA: last 5 trades mean $-100.27,day,rule
+demo_user,,2025-09-12,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-09-16,ticker_bias_recent,0.7,Ticker AAPL: last 5 trades mean $-87.61,day,rule
+demo_user,,2025-09-16,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-09-19,ticker_bias_recent,0.7,Ticker MSFT: last 5 trades mean $-916.40,day,rule
+demo_user,,2025-09-19,ticker_bias_recent,0.7,Ticker NVDA: last 5 trades mean $-334.50,day,rule
+demo_user,6.0,2024-10-17,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,7.0,2024-10-17,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,15.0,2024-10-22,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,16.0,2024-10-22,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,17.0,2024-10-22,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,19.0,2024-10-22,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,20.0,2024-10-22,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,22.0,2024-10-23,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,23.0,2024-10-23,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,28.0,2024-10-29,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,33.0,2024-11-01,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,34.0,2024-11-01,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,35.0,2024-11-01,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,36.0,2024-11-01,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,37.0,2024-11-01,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,40.0,2024-11-11,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,42.0,2024-11-15,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,44.0,2024-11-18,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,48.0,2024-11-25,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,53.0,2024-12-06,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,55.0,2024-12-06,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,56.0,2024-12-06,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,61.0,2024-12-17,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,64.0,2024-12-18,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,65.0,2024-12-18,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,67.0,2024-12-19,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,68.0,2024-12-19,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,69.0,2024-12-19,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,70.0,2024-12-19,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,71.0,2024-12-19,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,72.0,2024-12-19,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,75.0,2024-12-31,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,78.0,2025-01-01,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,79.0,2025-01-01,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,83.0,2025-01-06,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,85.0,2025-01-06,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,88.0,2025-01-10,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,98.0,2025-02-05,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,99.0,2025-02-05,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,101.0,2025-02-10,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,105.0,2025-02-18,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,106.0,2025-02-18,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,111.0,2025-03-10,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,116.0,2025-03-21,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,117.0,2025-03-21,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,118.0,2025-03-21,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,119.0,2025-03-21,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,120.0,2025-03-21,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,122.0,2025-03-21,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,124.0,2025-03-25,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,127.0,2025-03-27,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,128.0,2025-03-27,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,129.0,2025-03-27,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,130.0,2025-03-27,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,131.0,2025-03-27,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,147.0,2025-04-10,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,148.0,2025-04-10,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,150.0,2025-04-11,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,153.0,2025-04-15,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,158.0,2025-04-22,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,161.0,2025-04-23,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,166.0,2025-04-29,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,167.0,2025-04-29,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,171.0,2025-05-02,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,172.0,2025-05-02,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,174.0,2025-05-07,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,177.0,2025-05-13,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,178.0,2025-05-13,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,179.0,2025-05-13,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,181.0,2025-05-13,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,186.0,2025-05-16,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,190.0,2025-05-19,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,191.0,2025-05-19,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,193.0,2025-05-19,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,197.0,2025-05-26,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,200.0,2025-05-28,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,203.0,2025-05-30,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,204.0,2025-05-30,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,205.0,2025-05-30,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,206.0,2025-05-30,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,207.0,2025-05-30,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,210.0,2025-06-03,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,211.0,2025-06-03,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,212.0,2025-06-03,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,213.0,2025-06-03,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,214.0,2025-06-03,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,215.0,2025-06-03,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,216.0,2025-06-03,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,217.0,2025-06-03,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,218.0,2025-06-03,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,219.0,2025-06-03,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,221.0,2025-06-03,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,223.0,2025-06-03,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,226.0,2025-06-05,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,228.0,2025-06-06,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,229.0,2025-06-06,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,231.0,2025-06-06,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,232.0,2025-06-06,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,233.0,2025-06-06,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,234.0,2025-06-06,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,236.0,2025-06-13,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,237.0,2025-06-13,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,238.0,2025-06-13,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,239.0,2025-06-13,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,240.0,2025-06-13,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,250.0,2025-06-27,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,262.0,2025-07-01,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,263.0,2025-07-01,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,266.0,2025-07-09,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,267.0,2025-07-09,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,269.0,2025-07-10,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,271.0,2025-07-14,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,277.0,2025-07-17,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,280.0,2025-08-11,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,285.0,2025-08-11,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,286.0,2025-08-11,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,287.0,2025-08-11,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,288.0,2025-08-11,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,289.0,2025-08-11,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,292.0,2025-08-11,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,297.0,2025-08-13,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,298.0,2025-08-13,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,302.0,2025-08-14,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,304.0,2025-08-14,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,312.0,2025-09-10,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,313.0,2025-09-10,follow_through_win_immediate,0.7,Immediate follow-through after win,trade,rule
+demo_user,316.0,2025-09-12,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,317.0,2025-09-12,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,320.0,2025-09-12,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,323.0,2025-09-16,follow_through_win_immediate,0.85,Immediate follow-through after win (same ticker),trade,rule
+demo_user,2.0,2024-10-09,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.3σ, within discipline)",trade,rule
+demo_user,5.0,2024-10-17,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.2σ, within discipline)",trade,rule
+demo_user,11.0,2024-10-21,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.3σ, within discipline)",trade,rule
+demo_user,13.0,2024-10-22,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.1σ, within discipline)",trade,rule
+demo_user,14.0,2024-10-22,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size 0.2σ, within discipline)",trade,rule
+demo_user,25.0,2024-10-25,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.6σ, within discipline)",trade,rule
+demo_user,26.0,2024-10-25,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.3σ, within discipline)",trade,rule
+demo_user,31.0,2024-10-31,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.3σ, within discipline)",trade,rule
+demo_user,38.0,2024-11-01,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size 0.2σ, within discipline)",trade,rule
+demo_user,51.0,2024-12-05,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.7σ, within discipline)",trade,rule
+demo_user,54.0,2024-12-06,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.2σ, within discipline)",trade,rule
+demo_user,59.0,2024-12-17,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.1σ, within discipline)",trade,rule
+demo_user,60.0,2024-12-17,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size 0.2σ, within discipline)",trade,rule
+demo_user,95.0,2025-02-05,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size 0.3σ, within discipline)",trade,rule
+demo_user,97.0,2025-02-05,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.7σ, within discipline)",trade,rule
+demo_user,110.0,2025-03-10,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.3σ, within discipline)",trade,rule
+demo_user,115.0,2025-03-21,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.1σ, within discipline)",trade,rule
+demo_user,121.0,2025-03-21,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.4σ, within discipline)",trade,rule
+demo_user,134.0,2025-04-07,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -1.0σ, within discipline)",trade,rule
+demo_user,136.0,2025-04-07,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size 0.2σ, within discipline)",trade,rule
+demo_user,137.0,2025-04-07,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.1σ, within discipline)",trade,rule
+demo_user,138.0,2025-04-07,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.9σ, within discipline)",trade,rule
+demo_user,139.0,2025-04-07,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.2σ, within discipline)",trade,rule
+demo_user,143.0,2025-04-08,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.7σ, within discipline)",trade,rule
+demo_user,146.0,2025-04-10,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.3σ, within discipline)",trade,rule
+demo_user,152.0,2025-04-15,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.6σ, within discipline)",trade,rule
+demo_user,155.0,2025-04-16,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.8σ, within discipline)",trade,rule
+demo_user,159.0,2025-04-22,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.3σ, within discipline)",trade,rule
+demo_user,163.0,2025-04-29,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.8σ, within discipline)",trade,rule
+demo_user,164.0,2025-04-29,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.5σ, within discipline)",trade,rule
+demo_user,165.0,2025-04-29,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.9σ, within discipline)",trade,rule
+demo_user,183.0,2025-05-16,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.3σ, within discipline)",trade,rule
+demo_user,184.0,2025-05-16,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.7σ, within discipline)",trade,rule
+demo_user,185.0,2025-05-16,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.4σ, within discipline)",trade,rule
+demo_user,187.0,2025-05-16,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size 0.2σ, within discipline)",trade,rule
+demo_user,195.0,2025-05-23,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.8σ, within discipline)",trade,rule
+demo_user,198.0,2025-05-26,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.5σ, within discipline)",trade,rule
+demo_user,201.0,2025-05-28,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.8σ, within discipline)",trade,rule
+demo_user,222.0,2025-06-03,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size 0.2σ, within discipline)",trade,rule
+demo_user,230.0,2025-06-06,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.0σ, within discipline)",trade,rule
+demo_user,241.0,2025-06-13,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.8σ, within discipline)",trade,rule
+demo_user,242.0,2025-06-13,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.4σ, within discipline)",trade,rule
+demo_user,253.0,2025-06-27,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size 0.4σ, within discipline)",trade,rule
+demo_user,256.0,2025-06-27,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size 0.0σ, within discipline)",trade,rule
+demo_user,258.0,2025-06-27,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.9σ, within discipline)",trade,rule
+demo_user,272.0,2025-07-14,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.8σ, within discipline)",trade,rule
+demo_user,273.0,2025-07-14,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.4σ, within discipline)",trade,rule
+demo_user,274.0,2025-07-14,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.4σ, within discipline)",trade,rule
+demo_user,281.0,2025-08-11,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.2σ, within discipline)",trade,rule
+demo_user,282.0,2025-08-11,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.0σ, within discipline)",trade,rule
+demo_user,283.0,2025-08-11,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.7σ, within discipline)",trade,rule
+demo_user,284.0,2025-08-11,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.0σ, within discipline)",trade,rule
+demo_user,290.0,2025-08-11,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.5σ, within discipline)",trade,rule
+demo_user,291.0,2025-08-11,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.4σ, within discipline)",trade,rule
+demo_user,294.0,2025-08-13,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -1.0σ, within discipline)",trade,rule
+demo_user,295.0,2025-08-13,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.8σ, within discipline)",trade,rule
+demo_user,300.0,2025-08-13,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.3σ, within discipline)",trade,rule
+demo_user,309.0,2025-09-01,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size 0.5σ, within discipline)",trade,rule
+demo_user,314.0,2025-09-10,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.7σ, within discipline)",trade,rule
+demo_user,319.0,2025-09-12,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.3σ, within discipline)",trade,rule
+demo_user,322.0,2025-09-16,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size -0.0σ, within discipline)",trade,rule
+demo_user,324.0,2025-09-16,disciplined_after_loss_immediate,0.8,"Composed re-entry after loss (size 0.2σ, within discipline)",trade,rule
+demo_user,2.0,2024-10-09,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,5.0,2024-10-17,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,10.0,2024-10-21,consistent_size,0.6,Consistent position sizing (-0.5σ from typical),trade,rule
+demo_user,11.0,2024-10-21,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,12.0,2024-10-22,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,13.0,2024-10-22,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,14.0,2024-10-22,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,20.0,2024-10-22,consistent_size,0.6,Consistent position sizing (0.1σ from typical),trade,rule
+demo_user,23.0,2024-10-23,consistent_size,0.6,Consistent position sizing (-0.0σ from typical),trade,rule
+demo_user,24.0,2024-10-25,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,26.0,2024-10-25,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,31.0,2024-10-31,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,32.0,2024-11-01,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,38.0,2024-11-01,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,40.0,2024-11-11,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,43.0,2024-11-18,consistent_size,0.6,Consistent position sizing (0.3σ from typical),trade,rule
+demo_user,44.0,2024-11-18,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,47.0,2024-11-25,consistent_size,0.6,Consistent position sizing (0.4σ from typical),trade,rule
+demo_user,49.0,2024-11-27,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,52.0,2024-12-06,consistent_size,0.6,Consistent position sizing (-0.5σ from typical),trade,rule
+demo_user,54.0,2024-12-06,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,57.0,2024-12-13,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,58.0,2024-12-17,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,59.0,2024-12-17,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,60.0,2024-12-17,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,61.0,2024-12-17,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,63.0,2024-12-18,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,66.0,2024-12-19,consistent_size,0.6,Consistent position sizing (0.4σ from typical),trade,rule
+demo_user,87.0,2025-01-10,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,91.0,2025-01-27,consistent_size,0.6,Consistent position sizing (0.3σ from typical),trade,rule
+demo_user,95.0,2025-02-05,consistent_size,0.6,Consistent position sizing (0.3σ from typical),trade,rule
+demo_user,98.0,2025-02-05,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,100.0,2025-02-10,consistent_size,0.6,Consistent position sizing (0.1σ from typical),trade,rule
+demo_user,102.0,2025-02-11,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,103.0,2025-02-17,consistent_size,0.6,Consistent position sizing (0.3σ from typical),trade,rule
+demo_user,107.0,2025-02-25,consistent_size,0.6,Consistent position sizing (-0.0σ from typical),trade,rule
+demo_user,108.0,2025-02-26,consistent_size,0.6,Consistent position sizing (0.0σ from typical),trade,rule
+demo_user,110.0,2025-03-10,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,111.0,2025-03-10,consistent_size,0.6,Consistent position sizing (0.3σ from typical),trade,rule
+demo_user,115.0,2025-03-21,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,117.0,2025-03-21,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,120.0,2025-03-21,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,121.0,2025-03-21,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,122.0,2025-03-21,consistent_size,0.6,Consistent position sizing (-0.5σ from typical),trade,rule
+demo_user,123.0,2025-03-25,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,127.0,2025-03-27,consistent_size,0.6,Consistent position sizing (0.3σ from typical),trade,rule
+demo_user,129.0,2025-03-27,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,136.0,2025-04-07,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,137.0,2025-04-07,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,139.0,2025-04-07,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,146.0,2025-04-10,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,153.0,2025-04-15,consistent_size,0.6,Consistent position sizing (-0.0σ from typical),trade,rule
+demo_user,158.0,2025-04-22,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,159.0,2025-04-22,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,160.0,2025-04-23,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,161.0,2025-04-23,consistent_size,0.6,Consistent position sizing (-0.5σ from typical),trade,rule
+demo_user,164.0,2025-04-29,consistent_size,0.6,Consistent position sizing (-0.5σ from typical),trade,rule
+demo_user,172.0,2025-05-02,consistent_size,0.6,Consistent position sizing (0.5σ from typical),trade,rule
+demo_user,175.0,2025-05-09,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,179.0,2025-05-13,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,182.0,2025-05-16,consistent_size,0.6,Consistent position sizing (-0.5σ from typical),trade,rule
+demo_user,183.0,2025-05-16,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,185.0,2025-05-16,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,187.0,2025-05-16,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,189.0,2025-05-19,consistent_size,0.6,Consistent position sizing (0.5σ from typical),trade,rule
+demo_user,190.0,2025-05-19,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,191.0,2025-05-19,consistent_size,0.6,Consistent position sizing (0.3σ from typical),trade,rule
+demo_user,194.0,2025-05-23,consistent_size,0.6,Consistent position sizing (-0.5σ from typical),trade,rule
+demo_user,198.0,2025-05-26,consistent_size,0.6,Consistent position sizing (-0.5σ from typical),trade,rule
+demo_user,199.0,2025-05-28,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,202.0,2025-05-30,consistent_size,0.6,Consistent position sizing (-0.5σ from typical),trade,rule
+demo_user,204.0,2025-05-30,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,206.0,2025-05-30,consistent_size,0.6,Consistent position sizing (0.1σ from typical),trade,rule
+demo_user,209.0,2025-06-03,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,210.0,2025-06-03,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,211.0,2025-06-03,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,216.0,2025-06-03,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,217.0,2025-06-03,consistent_size,0.6,Consistent position sizing (0.5σ from typical),trade,rule
+demo_user,219.0,2025-06-03,consistent_size,0.6,Consistent position sizing (0.3σ from typical),trade,rule
+demo_user,222.0,2025-06-03,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,226.0,2025-06-05,consistent_size,0.6,Consistent position sizing (0.4σ from typical),trade,rule
+demo_user,230.0,2025-06-06,consistent_size,0.6,Consistent position sizing (-0.0σ from typical),trade,rule
+demo_user,238.0,2025-06-13,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,239.0,2025-06-13,consistent_size,0.6,Consistent position sizing (0.0σ from typical),trade,rule
+demo_user,242.0,2025-06-13,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,245.0,2025-06-16,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,247.0,2025-06-18,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,249.0,2025-06-27,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,250.0,2025-06-27,consistent_size,0.6,Consistent position sizing (-0.0σ from typical),trade,rule
+demo_user,253.0,2025-06-27,consistent_size,0.6,Consistent position sizing (0.4σ from typical),trade,rule
+demo_user,256.0,2025-06-27,consistent_size,0.6,Consistent position sizing (0.0σ from typical),trade,rule
+demo_user,261.0,2025-07-01,consistent_size,0.6,Consistent position sizing (0.4σ from typical),trade,rule
+demo_user,263.0,2025-07-01,consistent_size,0.6,Consistent position sizing (0.5σ from typical),trade,rule
+demo_user,268.0,2025-07-10,consistent_size,0.6,Consistent position sizing (0.3σ from typical),trade,rule
+demo_user,270.0,2025-07-14,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,271.0,2025-07-14,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,273.0,2025-07-14,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,274.0,2025-07-14,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,275.0,2025-07-15,consistent_size,0.6,Consistent position sizing (-0.0σ from typical),trade,rule
+demo_user,276.0,2025-07-17,consistent_size,0.6,Consistent position sizing (0.4σ from typical),trade,rule
+demo_user,277.0,2025-07-17,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,278.0,2025-08-05,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,279.0,2025-08-11,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,280.0,2025-08-11,consistent_size,0.6,Consistent position sizing (0.0σ from typical),trade,rule
+demo_user,281.0,2025-08-11,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,282.0,2025-08-11,consistent_size,0.6,Consistent position sizing (-0.0σ from typical),trade,rule
+demo_user,284.0,2025-08-11,consistent_size,0.6,Consistent position sizing (-0.0σ from typical),trade,rule
+demo_user,285.0,2025-08-11,consistent_size,0.6,Consistent position sizing (0.0σ from typical),trade,rule
+demo_user,288.0,2025-08-11,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,291.0,2025-08-11,consistent_size,0.6,Consistent position sizing (-0.4σ from typical),trade,rule
+demo_user,292.0,2025-08-11,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,293.0,2025-08-13,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,300.0,2025-08-13,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,304.0,2025-08-14,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,307.0,2025-08-29,consistent_size,0.6,Consistent position sizing (-0.1σ from typical),trade,rule
+demo_user,309.0,2025-09-01,consistent_size,0.6,Consistent position sizing (0.5σ from typical),trade,rule
+demo_user,310.0,2025-09-02,consistent_size,0.6,Consistent position sizing (-0.0σ from typical),trade,rule
+demo_user,313.0,2025-09-10,consistent_size,0.6,Consistent position sizing (-0.2σ from typical),trade,rule
+demo_user,319.0,2025-09-12,consistent_size,0.6,Consistent position sizing (-0.3σ from typical),trade,rule
+demo_user,322.0,2025-09-16,consistent_size,0.6,Consistent position sizing (-0.0σ from typical),trade,rule
+demo_user,324.0,2025-09-16,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,325.0,2025-09-19,consistent_size,0.6,Consistent position sizing (0.2σ from typical),trade,rule
+demo_user,,2024-10-29,focused_day,1.0,"1 tickers, PnL 283.88, trades=2",day,
+demo_user,,2024-10-30,focused_day,1.0,"1 tickers, PnL 163.54, trades=1",day,
+demo_user,,2024-10-31,focused_day,1.0,"1 tickers, PnL 88.61, trades=2",day,
+demo_user,,2024-11-11,focused_day,1.0,"1 tickers, PnL 552.57, trades=2",day,
+demo_user,,2024-11-25,focused_day,1.0,"1 tickers, PnL 3141.54, trades=2",day,
+demo_user,,2024-11-27,focused_day,1.0,"1 tickers, PnL 116.16, trades=1",day,
+demo_user,,2024-12-05,focused_day,0.6,"1 tickers, PnL -9.80, trades=2",day,
+demo_user,,2024-12-13,focused_day,0.6,"1 tickers, PnL -121.59, trades=1",day,
+demo_user,,2024-12-24,focused_day,1.0,"1 tickers, PnL 7.25, trades=1",day,
+demo_user,,2024-12-31,focused_day,0.6,"1 tickers, PnL -2275.23, trades=3",day,
+demo_user,,2025-01-02,focused_day,0.6,"1 tickers, PnL -1159.25, trades=1",day,
+demo_user,,2025-01-09,focused_day,1.0,"1 tickers, PnL 52.08, trades=1",day,
+demo_user,,2025-01-22,focused_day,1.0,"1 tickers, PnL 119.13, trades=1",day,
+demo_user,,2025-01-27,focused_day,0.6,"1 tickers, PnL -96.85, trades=1",day,
+demo_user,,2025-01-31,focused_day,1.0,"1 tickers, PnL 640.38, trades=1",day,
+demo_user,,2025-02-04,focused_day,0.6,"1 tickers, PnL -67.32, trades=1",day,
+demo_user,,2025-02-10,focused_day,1.0,"1 tickers, PnL 1389.36, trades=2",day,
+demo_user,,2025-02-11,focused_day,0.6,"1 tickers, PnL -13.10, trades=1",day,
+demo_user,,2025-02-17,focused_day,1.0,"1 tickers, PnL 283.92, trades=1",day,
+demo_user,,2025-02-25,focused_day,0.6,"1 tickers, PnL -394.96, trades=1",day,
+demo_user,,2025-02-26,focused_day,0.6,"1 tickers, PnL -54.64, trades=1",day,
+demo_user,,2025-03-10,focused_day,1.0,"1 tickers, PnL 313.51, trades=3",day,
+demo_user,,2025-03-11,focused_day,1.0,"1 tickers, PnL 181.80, trades=1",day,
+demo_user,,2025-03-12,focused_day,1.0,"1 tickers, PnL 171.39, trades=1",day,
+demo_user,,2025-04-07,focused_day,0.6,"1 tickers, PnL -958.89, trades=7",day,
+demo_user,,2025-04-11,focused_day,1.0,"1 tickers, PnL 711.13, trades=2",day,
+demo_user,,2025-04-23,focused_day,1.0,"1 tickers, PnL 126.43, trades=2",day,
+demo_user,,2025-05-01,focused_day,0.6,"1 tickers, PnL -225.99, trades=1",day,
+demo_user,,2025-05-09,focused_day,1.0,"1 tickers, PnL 205.35, trades=1",day,
+demo_user,,2025-05-23,focused_day,0.6,"1 tickers, PnL -68.92, trades=2",day,
+demo_user,,2025-06-04,focused_day,1.0,"1 tickers, PnL 142.29, trades=1",day,
+demo_user,,2025-06-05,focused_day,1.0,"1 tickers, PnL 72.43, trades=2",day,
+demo_user,,2025-06-06,focused_day,0.85,"1 tickers, PnL 2396.74, trades=8",day,
+demo_user,,2025-06-16,focused_day,0.6,"1 tickers, PnL -516.15, trades=2",day,
+demo_user,,2025-06-18,focused_day,1.0,"1 tickers, PnL 123.90, trades=1",day,
+demo_user,,2025-06-26,focused_day,1.0,"1 tickers, PnL 2.79, trades=1",day,
+demo_user,,2025-06-27,focused_day,0.5,"3 tickers, PnL -8192.33, trades=12",day,
+demo_user,,2025-07-07,focused_day,1.0,"1 tickers, PnL 295.10, trades=1",day,
+demo_user,,2025-07-10,focused_day,0.6,"1 tickers, PnL -25.92, trades=2",day,
+demo_user,,2025-07-15,focused_day,0.6,"1 tickers, PnL -267.26, trades=1",day,
+demo_user,,2025-08-05,focused_day,1.0,"1 tickers, PnL 27.20, trades=1",day,
+demo_user,,2025-08-14,focused_day,1.0,"1 tickers, PnL 1012.47, trades=4",day,
+demo_user,,2025-08-27,focused_day,0.6,"1 tickers, PnL -550.12, trades=2",day,
+demo_user,,2025-08-29,focused_day,1.0,"1 tickers, PnL 154.96, trades=1",day,
+demo_user,,2025-09-01,focused_day,0.6,"1 tickers, PnL -287.98, trades=2",day,
+demo_user,,2025-09-02,focused_day,1.0,"1 tickers, PnL 276.30, trades=1",day,
+demo_user,,2024-10-29,green_day_low_activity,1.0,"2 trades, PnL 283.88",day,
+demo_user,,2024-10-30,green_day_low_activity,0.8,"1 trades, PnL 163.54",day,
+demo_user,,2024-10-31,green_day_low_activity,0.8,"2 trades, PnL 88.61",day,
+demo_user,,2024-11-11,green_day_low_activity,1.0,"2 trades, PnL 552.57",day,
+demo_user,,2024-11-15,green_day_low_activity,1.0,"2 trades, PnL 604.44",day,
+demo_user,,2024-11-25,green_day_low_activity,1.0,"2 trades, PnL 3141.54",day,
+demo_user,,2024-11-27,green_day_low_activity,0.8,"1 trades, PnL 116.16",day,
+demo_user,,2024-12-24,green_day_low_activity,0.6,"1 trades, PnL 7.25",day,
+demo_user,,2025-01-09,green_day_low_activity,0.8,"1 trades, PnL 52.08",day,
+demo_user,,2025-01-22,green_day_low_activity,0.8,"1 trades, PnL 119.13",day,
+demo_user,,2025-01-31,green_day_low_activity,1.0,"1 trades, PnL 640.38",day,
+demo_user,,2025-02-10,green_day_low_activity,1.0,"2 trades, PnL 1389.36",day,
+demo_user,,2025-02-17,green_day_low_activity,1.0,"1 trades, PnL 283.92",day,
+demo_user,,2025-03-11,green_day_low_activity,0.8,"1 trades, PnL 181.80",day,
+demo_user,,2025-03-12,green_day_low_activity,0.8,"1 trades, PnL 171.39",day,
+demo_user,,2025-04-11,green_day_low_activity,1.0,"2 trades, PnL 711.13",day,
+demo_user,,2025-04-23,green_day_low_activity,0.8,"2 trades, PnL 126.43",day,
+demo_user,,2025-05-07,green_day_low_activity,1.0,"2 trades, PnL 1545.70",day,
+demo_user,,2025-05-09,green_day_low_activity,1.0,"1 trades, PnL 205.35",day,
+demo_user,,2025-06-04,green_day_low_activity,0.8,"1 trades, PnL 142.29",day,
+demo_user,,2025-06-05,green_day_low_activity,0.8,"2 trades, PnL 72.43",day,
+demo_user,,2025-06-18,green_day_low_activity,0.8,"1 trades, PnL 123.90",day,
+demo_user,,2025-06-26,green_day_low_activity,0.6,"1 trades, PnL 2.79",day,
+demo_user,,2025-07-07,green_day_low_activity,1.0,"1 trades, PnL 295.10",day,
+demo_user,,2025-07-17,green_day_low_activity,1.0,"2 trades, PnL 381.88",day,
+demo_user,,2025-08-05,green_day_low_activity,0.6,"1 trades, PnL 27.20",day,
+demo_user,,2025-08-29,green_day_low_activity,0.8,"1 trades, PnL 154.96",day,
+demo_user,,2025-09-02,green_day_low_activity,1.0,"1 trades, PnL 276.30",day,
