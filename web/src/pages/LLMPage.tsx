@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageSquare, Send, Bot, User, Zap, Brain, TrendingUp, CircleAlert as AlertCircle, Lightbulb } from 'lucide-react';
+import { MessageSquare, Send, Bot, User, Zap, Brain, TrendingUp, AlertCircle, Lightbulb } from 'lucide-react';
 import './LLMPage.css';
 
 interface Message {
@@ -245,3 +245,5 @@ const LLMPage: React.FC = () => {
 };
 
 export default LLMPage;
+
+export default LLMPage
