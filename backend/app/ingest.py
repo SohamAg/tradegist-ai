@@ -82,8 +82,8 @@ def load_ledger(path: str, user_id: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
     c_amount = _pick(df, ["amount","cash","net"])
 
     # Basic normalization
-    norm = pd.DataFrame()
-    norm["user_id"] = user_id
+    norm = pd.DataFrame(index=df.index)
+    norm["user_id"] = str(user_id)
     norm["date"]    = pd.to_datetime(df[c_date], errors="coerce").dt.date
     norm["ticker"]  = df[c_ticker].astype(str).str.upper().str.strip()
     norm["action_raw"] = df[c_action].astype(str)
@@ -204,7 +204,9 @@ def main():
     args = ap.parse_args()
 
     execs, cash = load_ledger(args.path, user_id=args.user)
+    #print(execs)
     trades = fifo_round_trips(execs)
+    # print(execs)
 
     print("\n=== Round-Trip Trades (top 10) ===")
     print(trades.head(10).to_string(index=False))
