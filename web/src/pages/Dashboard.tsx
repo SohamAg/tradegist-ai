@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TrendingUp, TrendingDown, DollarSign, Calendar, Star, Zap, ChartBar as BarChart3, ChartPie as PieChart, Activity, Target } from 'lucide-react';
+import { TrendingUp, TrendingDown, DollarSign, Calendar, Star, Zap, BarChart3, PieChart, Activity, Target } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 import { useUser } from '../contexts/UserContext';
 import './Dashboard.css';

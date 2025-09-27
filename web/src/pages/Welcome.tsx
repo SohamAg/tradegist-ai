@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TrendingUp, Brain, ChartBar as BarChart3, Target, Zap, Shield, ArrowRight, Star, Activity, ChartPie as PieChart, TrendingDown } from 'lucide-react';
+import { TrendingUp, Brain, BarChart3, Target, Zap, Shield, ArrowRight, Star, Activity, PieChart, TrendingDown } from 'lucide-react';
 import { useUser } from '../contexts/UserContext';
 import ThemeToggle from '../components/ThemeToggle/ThemeToggle';
 import './Welcome.css';
