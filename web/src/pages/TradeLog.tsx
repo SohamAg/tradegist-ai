@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Search, Filter, TrendingUp, TrendingDown, Calendar, Tag } from 'lucide-react';
+import { Plus, Search, ListFilter as Filter, TrendingUp, TrendingDown, Calendar, Tag } from 'lucide-react';
 import './TradeLog.css';
 
 interface Trade {

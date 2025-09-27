@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { TrendingUp, Brain, BarChart3, Sparkles } from 'lucide-react';
+import { TrendingUp, Brain, ChartBar as BarChart3, Sparkles } from 'lucide-react';
 import ThemeToggle from '../components/ThemeToggle';
 import './LandingPage.css';
 

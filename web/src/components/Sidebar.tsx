@@ -1,13 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { 
-  Home, 
-  BookOpen, 
-  Brain, 
-  MessageSquare, 
-  X,
-  Sparkles
-} from 'lucide-react';
+import { Hop as Home, BookOpen, Brain, MessageSquare, X, Sparkles } from 'lucide-react';
 import './Sidebar.css';
 
 interface SidebarProps {
