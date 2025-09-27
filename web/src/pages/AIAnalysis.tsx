@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, TrendingUp, TriangleAlert as AlertTriangle, Target, Zap, BarChart3, PieChart, Activity, Star, ArrowRight } from 'lucide-react';
+import { Brain, TrendingUp, TriangleAlert as AlertTriangle, Target, Zap, ChartBar as BarChart3, ChartPie as PieChart, Activity, Star, ArrowRight } from 'lucide-react';
 import './AIAnalysis.css';
 
 const AIAnalysis: React.FC = () => {
