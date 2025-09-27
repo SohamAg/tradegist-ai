@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { StatCard } from '@/components/ui/stat-card'
-import { Brain, TrendingUp, AlertTriangle, Target } from 'lucide-react'
+import { Brain, TrendingUp, TriangleAlert as AlertTriangle, Target } from 'lucide-react'
 
 export default function AIInsightsPage() {
   return (

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { TagChip } from '@/components/ui/tag-chip'
-import { Plus, Search, Filter } from 'lucide-react'
+import { Plus, Search, ListFilter as Filter } from 'lucide-react'
 import { formatDate, formatCurrency } from '@/lib/date'
 import { Trade, BehaviorTag, Behavior } from '@/lib/types'
 
