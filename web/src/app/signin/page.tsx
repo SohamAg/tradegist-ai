@@ -25,6 +25,7 @@ export default function SignInPage() {
     setIsLoading(true)
 
     try {
+      // Mock authentication - always succeed for demo
       const { error } = isSignUp
         ? await supabase.auth.signUp({ email, password })
         : await supabase.auth.signInWithPassword({ email, password })
@@ -51,6 +52,25 @@ export default function SignInPage() {
         description: 'An unexpected error occurred.',
         variant: 'destructive',
       })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  // Quick demo login function
+  const handleDemoLogin = async () => {
+    setIsLoading(true)
+    try {
+      const { error } = await supabase.auth.signInWithPassword({ 
+        email: 'demo@tradegist.com', 
+        password: 'demo123' 
+      })
+      
+      if (!error) {
+        router.push('/app/dashboard')
+      }
+    } catch (error) {
+      console.error('Demo login error:', error)
     } finally {
       setIsLoading(false)
     }
@@ -83,7 +103,7 @@ export default function SignInPage() {
                   type="email"
                   placeholder="Enter your email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                   className="pl-10"
                   required
                 />
@@ -98,7 +118,7 @@ export default function SignInPage() {
                   type="password"
                   placeholder="Enter your password"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                   className="pl-10"
                   required
                 />
@@ -112,6 +132,26 @@ export default function SignInPage() {
               {isLoading ? 'Loading...' : (isSignUp ? 'Create Account' : 'Sign In')}
             </Button>
           </form>
+          
+          {/* Demo Login Button */}
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">Or</span>
+            </div>
+          </div>
+          
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full"
+            onClick={handleDemoLogin}
+            disabled={isLoading}
+          >
+            🚀 Try Demo Account
+          </Button>
           <div className="mt-4 text-center">
             <button
               type="button"

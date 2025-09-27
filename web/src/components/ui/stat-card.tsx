@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Video as LucideIcon } from 'lucide-react'
+import { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface StatCardProps {
@@ -9,7 +9,7 @@ interface StatCardProps {
   value: string | number
   change?: string
   changeType?: 'positive' | 'negative' | 'neutral'
-  icon?: LucideIcon
+  icon?: LucideIcon | React.ComponentType<{ className?: string }>
   className?: string
 }
 
