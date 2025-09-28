@@ -15,7 +15,7 @@ interface LayoutProps {
 }
 
 const navigation = [
-  { name: 'Home', href: '/', icon: Home },
+  { name: 'Home', href: '/home', icon: Home },
   { name: 'AI Chat', href: '/llm', icon: MessageSquare },
   { name: 'Trade Log', href: '/trades', icon: BookOpen },
   { name: 'Analytics', href: '/analytics', icon: BarChart3 },
@@ -39,7 +39,7 @@ export default function Layout({ children }: LayoutProps) {
                   <span className="text-xl font-bold gradient-text">
                     Tradegist AI
                   </span>
-                  <div className="text-xs text-slate-400 font-mono">v2.0</div>
+                  <div className="text-xs text-slate-400 font-mono">v1</div>
                 </div>
               </div>
               <div className="hidden sm:ml-8 sm:flex sm:space-x-1">
@@ -67,9 +67,12 @@ export default function Layout({ children }: LayoutProps) {
             
             {/* Status indicator */}
             <div className="flex items-center">
-              <div className="flex items-center px-3 py-1 bg-success-500/20 border border-success-500/30 rounded-full">
+              <div className="flex items-center px-3 py-1 bg-success-500/20 border border-success-500/30 rounded-full mr-4">
                 <div className="w-2 h-2 bg-success-400 rounded-full mr-2 animate-pulse"></div>
                 <span className="text-xs text-success-300 font-mono">AI ONLINE</span>
+              </div>
+              <div className="text-sm text-slate-300">
+                Welcome, <span className="text-white font-semibold">Soham</span>
               </div>
             </div>
           </div>

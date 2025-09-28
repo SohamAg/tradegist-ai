@@ -15,6 +15,7 @@ import {
   Cpu,
   Activity
 } from 'lucide-react'
+import DatabaseTest from '../components/DatabaseTest'
 
 export default function LandingPage() {
   const features = [
@@ -67,8 +68,7 @@ export default function LandingPage() {
   const stats = [
     { value: '10,000+', label: 'Trades Analyzed', icon: Activity },
     { value: '95%', label: 'Accuracy Rate', icon: Target },
-    { value: '24/7', label: 'AI Support', icon: Cpu },
-    { value: '500+', label: 'Active Traders', icon: TrendingUp }
+    { value: '24/7', label: 'AI Support', icon: Cpu }
   ]
 
   return (
@@ -77,8 +77,6 @@ export default function LandingPage() {
       <div className="text-center py-20 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 via-accent-500/10 to-success-500/10 animate-gradient-xy"></div>
-        <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary-500/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
         
         <div className="relative max-w-5xl mx-auto">
           <motion.div
@@ -123,7 +121,7 @@ export default function LandingPage() {
 
       {/* Stats Section */}
       <div className="py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon
             return (
@@ -142,6 +140,13 @@ export default function LandingPage() {
               </motion.div>
             )
           })}
+        </div>
+      </div>
+
+      {/* Database Test Section */}
+      <div className="py-16">
+        <div className="max-w-4xl mx-auto">
+          <DatabaseTest />
         </div>
       </div>
 

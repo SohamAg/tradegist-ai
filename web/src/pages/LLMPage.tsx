@@ -113,9 +113,9 @@ export default function LLMPage() {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
         {/* Chat Interface */}
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-4">
           <div className="card h-[700px] flex flex-col">
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-6 space-y-6">
@@ -221,7 +221,7 @@ export default function LLMPage() {
         </div>
 
         {/* Sidebar */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Trading Stats */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
