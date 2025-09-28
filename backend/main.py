@@ -13,11 +13,14 @@ import uvicorn
 import openai
 from dotenv import load_dotenv
 import io
-from reportlab.lib.pagesizes import letter
+from datetime import datetime
+import uuid
+from reportlab.lib.pagesizes import letter, A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib import colors
 from reportlab.lib.units import inch
+from reportlab.lib import colors
+from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
 
 # Add the backend app directory to Python path
 sys.path.append(str(Path(__file__).parent.parent / "backend" / "app"))
@@ -74,6 +77,7 @@ class TradeResponse(BaseModel):
 class ChatMessage(BaseModel):
     message: str
     context: Optional[Dict[str, Any]] = None
+    conversation_history: Optional[List[Dict[str, str]]] = None
 
 class ChatResponse(BaseModel):
     response: str
@@ -145,6 +149,43 @@ def get_all_trades_from_supabase():
     except Exception as e:
         print(f"Error fetching trades from Supabase: {str(e)}")
         return []
+    
+def compress_scores(csv_path: str, threshold: float = 0.6):
+    """
+    Read a 'trade_scores_with_day.csv' style file and return a list of:
+      { trade_id, trade_date, ticker, tags: [codes with score >= threshold] }
+
+    Notes:
+    - Expects numeric scores in [0,1].
+    - id columns are detected ('trade_id','trade_date','ticker'); everything else
+      that's numeric is treated as a candidate behavior column.
+    """
+    df = pd.read_csv(csv_path)
+    if df.empty:
+        return []
+
+    # Identify identifier columns & candidate behavior columns
+    id_cols = {"trade_id", "trade_date", "ticker"}
+    # Treat non-object dtypes as numeric score columns
+    behavior_cols = [c for c in df.columns if c not in id_cols and df[c].dtype != "O"]
+
+    records = []
+    for _, r in df.iterrows():
+        tags = []
+        for c in behavior_cols:
+            try:
+                val = float(r.get(c, 0))
+                if val >= threshold:
+                    tags.append(c)
+            except Exception:
+                pass
+        records.append({
+            "trade_id": int(r["trade_id"]) if "trade_id" in df.columns and pd.notna(r.get("trade_id")) else None,
+            "trade_date": str(r.get("trade_date", "")),
+            "ticker": str(r.get("ticker", "")),
+            "tags": tags
+        })
+    return records
 
 def get_behavioral_data_from_supabase():
     """Fetch behavioral data from Supabase for the current user"""
@@ -289,187 +330,291 @@ async def get_trade(trade_id: str):
 async def chat_with_ai(request: ChatMessage):
     """Chat with AI trading behavior coach"""
     try:
-        # Fetch all trades and behavioral data from Supabase
+        # ------------------------------------------------------------------
+        # 0) Gather DB-backed context (unchanged)
+        # ------------------------------------------------------------------
         print("Fetching all trades from Supabase...")
         all_trades_from_db = get_all_trades_from_supabase()
         behavioral_data_from_db = get_behavioral_data_from_supabase()
-        
-        # Prepare comprehensive context for the AI
+
+        # ------------------------------------------------------------------
+        # 1) Build context (keep your existing logic, but make it resilient)
+        # ------------------------------------------------------------------
         context_info = ""
-        if request.context:
-            selected_trades = request.context.get('selectedTrades', [])
-            all_trades = request.context.get('allTrades', [])
-            
+        ctx = getattr(request, "context", None) or {}
+
+        if ctx:
+            selected_trades = ctx.get('selectedTrades', [])
+            all_trades = ctx.get('allTrades', [])
+
             # Selected trades context
             if selected_trades:
                 context_info += f"\n\nSELECTED TRADES FOR ANALYSIS ({len(selected_trades)} trades):\n"
                 for trade in selected_trades[:10]:  # Show up to 10 selected trades
-                    context_info += f"- {trade.get('ticker', 'N/A')} ({trade.get('side', 'N/A')}) on {trade.get('trade_date', 'N/A')}: ${trade.get('realized_pnl', 0):.2f} P&L, Mood: {trade.get('mood', 'N/A')}, Tags: {trade.get('manual_tags', 'N/A')}\n"
-            
+                    try:
+                        context_info += (
+                            f"- {trade.get('ticker', 'N/A')} ({trade.get('side', 'N/A')}) "
+                            f"on {trade.get('trade_date', 'N/A')}: "
+                            f"${float(trade.get('realized_pnl', 0)):.2f} P&L, "
+                            f"Mood: {trade.get('mood', 'N/A')}, "
+                            f"Tags: {trade.get('manual_tags', 'N/A')}\n"
+                        )
+                    except Exception:
+                        pass
+
             # Overall trading statistics from Supabase
             if all_trades_from_db:
                 total_trades = len(all_trades_from_db)
-                winning_trades = len([t for t in all_trades_from_db if t.get('realized_pnl', 0) > 0])
+                winning_trades = len([t for t in all_trades_from_db if (t.get('realized_pnl') or 0) > 0])
                 win_rate = (winning_trades / total_trades * 100) if total_trades > 0 else 0
-                total_pnl = sum([t.get('realized_pnl', 0) for t in all_trades_from_db])
+                total_pnl = sum([(t.get('realized_pnl') or 0) for t in all_trades_from_db])
                 avg_pnl = total_pnl / total_trades if total_trades > 0 else 0
-                
+
                 context_info += f"\n\nCOMPLETE TRADING HISTORY FROM DATABASE ({total_trades} trades):\n"
                 context_info += f"- Total Trades: {total_trades}\n"
                 context_info += f"- Win Rate: {win_rate:.1f}%\n"
                 context_info += f"- Total P&L: ${total_pnl:.2f}\n"
                 context_info += f"- Average P&L per Trade: ${avg_pnl:.2f}\n"
-                
+
                 # Add recent trades summary
-                recent_trades = all_trades_from_db[:20]  # Last 20 trades
+                recent_trades = all_trades_from_db[:20]  # Last 20 trades (assumes already sorted desc)
                 context_info += f"\n\nRECENT TRADES SUMMARY (Last 20):\n"
                 for trade in recent_trades:
-                    context_info += f"- {trade.get('ticker', 'N/A')} ({trade.get('side', 'N/A')}) on {trade.get('trade_date', 'N/A')}: ${trade.get('realized_pnl', 0):.2f}, Mood: {trade.get('mood', 'N/A')}\n"
-            
-            # Behavioral insights
-            insights = request.context.get('insights', [])
+                    try:
+                        context_info += (
+                            f"- {trade.get('ticker', 'N/A')} ({trade.get('side', 'N/A')}) "
+                            f"on {trade.get('trade_date', 'N/A')}: "
+                            f"${float(trade.get('realized_pnl', 0)):.2f}, "
+                            f"Mood: {trade.get('mood', 'N/A')}\n"
+                        )
+                    except Exception:
+                        pass
+
+            # Behavioral insights (from client context)
+            insights = ctx.get('insights', [])
             if insights:
                 context_info += f"\n\nBEHAVIORAL INSIGHTS:\n"
                 for insight in insights[:5]:
                     context_info += f"- {insight}\n"
-            
-            # Tag frequency analysis
-            tag_frequency = request.context.get('tagFrequency', [])
+
+            # Tag frequency analysis (from client context)
+            tag_frequency = ctx.get('tagFrequency', [])
             if tag_frequency:
                 context_info += f"\n\nBEHAVIORAL TAG FREQUENCY:\n"
                 for tag in tag_frequency[:8]:
                     context_info += f"- {tag.get('tag', 'N/A')}: {tag.get('frequency', 0)} occurrences\n"
-            
-            # Mood analysis
-            mood_analysis = request.context.get('moodAnalysis', {})
+
+            # Mood analysis (from client context)
+            mood_analysis = ctx.get('moodAnalysis', {})
             if mood_analysis:
                 context_info += f"\n\nMOOD ANALYSIS:\n"
                 for mood, data in mood_analysis.items():
                     if isinstance(data, dict) and 'count' in data:
-                        context_info += f"- {mood}: {data.get('count', 0)} trades, Avg P&L: ${data.get('avgPnl', 0):.2f}\n"
-            
-            # Risk metrics
-            risk_metrics = request.context.get('riskMetrics', {})
+                        avg = data.get('avgPnl', 0) or 0
+                        context_info += f"- {mood}: {data.get('count', 0)} trades, Avg P&L: ${float(avg):.2f}\n"
+
+            # Risk metrics (from client context)
+            risk_metrics = ctx.get('riskMetrics', {})
             if risk_metrics:
                 context_info += f"\n\nRISK METRICS:\n"
                 for metric, value in risk_metrics.items():
                     context_info += f"- {metric}: {value}\n"
-            
-            # Patterns
-            patterns = request.context.get('patterns', [])
+
+            # Patterns (from client context)
+            patterns = ctx.get('patterns', [])
             if patterns:
                 context_info += f"\n\nIDENTIFIED PATTERNS:\n"
                 for pattern in patterns[:5]:
                     context_info += f"- {pattern}\n"
-            
-            # Add behavioral data from Supabase
+
+            # Behavioral data fetched from DB
             if behavioral_data_from_db:
                 context_info += f"\n\nBEHAVIORAL DATA FROM DATABASE:\n"
-                
+
                 # Trade scores analysis
                 trade_scores = behavioral_data_from_db.get('trade_scores', [])
                 if trade_scores:
-                    revenge_trades = len([s for s in trade_scores if s.get('revenge_immediate', 0) > 0.5])
-                    consistent_trades = len([s for s in trade_scores if s.get('consistent_size', 0) > 0.5])
-                    disciplined_trades = len([s for s in trade_scores if s.get('disciplined_after_loss_immediate', 0) > 0.5])
-                    
+                    revenge_trades = len([s for s in trade_scores if (s.get('revenge_immediate') or 0) > 0.5])
+                    consistent_trades = len([s for s in trade_scores if (s.get('consistent_size') or 0) > 0.5])
+                    disciplined_trades = len([s for s in trade_scores if (s.get('disciplined_after_loss_immediate') or 0) > 0.5])
+
                     context_info += f"- Trade Scores Analysis ({len(trade_scores)} scored trades):\n"
-                    context_info += f"  * Revenge Trading: {revenge_trades} trades ({revenge_trades/len(trade_scores)*100:.1f}%)\n"
-                    context_info += f"  * Consistent Size: {consistent_trades} trades ({consistent_trades/len(trade_scores)*100:.1f}%)\n"
-                    context_info += f"  * Disciplined After Loss: {disciplined_trades} trades ({disciplined_trades/len(trade_scores)*100:.1f}%)\n"
-                
+                    if len(trade_scores) > 0:
+                        context_info += f"  * Revenge Trading: {revenge_trades} trades ({revenge_trades/len(trade_scores)*100:.1f}%)\n"
+                        context_info += f"  * Consistent Size: {consistent_trades} trades ({consistent_trades/len(trade_scores)*100:.1f}%)\n"
+                        context_info += f"  * Disciplined After Loss: {disciplined_trades} trades ({disciplined_trades/len(trade_scores)*100:.1f}%)\n"
+
                 # Day scores analysis
                 day_scores = behavioral_data_from_db.get('day_scores', [])
                 if day_scores:
-                    overtrading_days = len([d for d in day_scores if d.get('overtrading_day', 0) > 0.5])
-                    focused_days = len([d for d in day_scores if d.get('focused_day', 0) > 0.5])
-                    
+                    overtrading_days = len([d for d in day_scores if (d.get('overtrading_day') or 0) > 0.5])
+                    focused_days = len([d for d in day_scores if (d.get('focused_day') or 0) > 0.5])
+
                     context_info += f"- Day Scores Analysis ({len(day_scores)} days):\n"
-                    context_info += f"  * Overtrading Days: {overtrading_days} days ({overtrading_days/len(day_scores)*100:.1f}%)\n"
-                    context_info += f"  * Focused Days: {focused_days} days ({focused_days/len(day_scores)*100:.1f}%)\n"
-                
-                # Tags analysis
+                    if len(day_scores) > 0:
+                        context_info += f"  * Overtrading Days: {overtrading_days} days ({overtrading_days/len(day_scores)*100:.1f}%)\n"
+                        context_info += f"  * Focused Days: {focused_days} days ({focused_days/len(day_scores)*100:.1f}%)\n"
+
+                # Raw rule tags (if you store them)
                 tags = behavioral_data_from_db.get('tags', [])
                 if tags:
                     tag_counts = {}
                     for tag in tags:
                         tag_name = tag.get('tag', 'Unknown')
                         tag_counts[tag_name] = tag_counts.get(tag_name, 0) + 1
-                    
+
                     context_info += f"- Behavioral Tags ({len(tags)} total tags):\n"
                     for tag_name, count in sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:10]:
                         context_info += f"  * {tag_name}: {count} occurrences\n"
 
-        # Create the system prompt for trading behavior coaching
-        system_prompt = f"""You are an expert trading behavior coach and AI assistant specializing in helping traders improve their decision-making, emotional control, and trading discipline. Your role is to:
+        # ------------------------------------------------------------------
+        # 2) Inject CSV context (NEW): raw trades + compressed behavior tags
+        # ------------------------------------------------------------------
+        try:
+            trades_csv_path = "data/trades_roundtrips.csv"
+            trades_df = pd.read_csv(trades_csv_path)
+            if not trades_df.empty:
+                context_info += f"\n\nRAW TRADES FROM CSV ({len(trades_df)} rows):\n"
+                for _, r in trades_df.head(10).iterrows():
+                    try:
+                        context_info += (
+                            f"- {r.get('ticker','N/A')} ({str(r.get('side','N/A')).lower()}) "
+                            f"on {r.get('trade_date','N/A')}, P&L ${float(r.get('realized_pnl',0) or 0):.2f}, "
+                            f"Mood: {r.get('mood','')}, Tags: {r.get('manual_tags','')}\n"
+                        )
+                    except Exception:
+                        pass
+        except Exception as e:
+            print(f"Could not load trades_roundtrips.csv: {e}")
 
-1. Analyze trading patterns and behavioral biases
-2. Provide personalized coaching and advice
-3. Help identify emotional triggers and decision-making flaws
-4. Suggest practical improvements for trading discipline
-5. Focus on behavioral aspects rather than specific P&L numbers
-6. Use a supportive, encouraging, but direct tone
-7. Provide actionable, specific recommendations
+        try:
+            scores_csv_path = "data/trade_scores_with_day.csv"
+            compressed = compress_scores(scores_csv_path, threshold=0.6)
+            if compressed:
+                context_info += f"\n\nBEHAVIORAL TAGS (≥0.6 confidence) FROM SCORES FILE ({len(compressed)} trades):\n"
+                for r in compressed[:10]:
+                    tags_str = ", ".join(r["tags"]) if r["tags"] else "None"
+                    context_info += (
+                        f"- {r.get('ticker','')} on {r.get('trade_date','')} "
+                        f"(trade_id={r.get('trade_id')}): {tags_str}\n"
+                    )
+        except Exception as e:
+            print(f"Could not load trade_scores_with_day.csv: {e}")
 
-IMPORTANT: Do NOT focus on specific profit/loss numbers or financial advice. Focus on BEHAVIORAL patterns, emotional control, discipline, and decision-making processes.
+        # ------------------------------------------------------------------
+        # 3) Upgraded system prompt (behavior-first, actionable)
+        # ------------------------------------------------------------------
+        system_prompt = f"""
+You are Tradegist, a behavioral analyst and trading coach. Your purpose is to help traders understand the deeper psychological and behavioral drivers of their trading decisions, drawing on both their raw trade history and their behavioral scoring data.
 
-User's Trading Context:{context_info}
+You can use markdown formatting to make your responses more readable and structured. Use:
+- **Bold text** for emphasis
+- *Italic text* for subtle emphasis  
+- `Code blocks` for specific metrics or data
+- ## Headers for section organization
+- - Bullet points for lists
+- > Blockquotes for important insights
 
-Respond in a conversational, supportive tone as if you're a personal trading coach. Be specific, actionable, and focus on behavioral improvements."""
+STYLE:
+- Use markdown formatting to make responses clear and structured
+- Write in a conversational, coaching tone
+- Organize insights with headers and bullet points for better readability
+- Use emphasis and formatting to highlight key points
+- Aim for depth: each response should be at least several paragraphs long, weaving together context, insights, and advice.
+- Tone: intellectual, insightful, and nuanced, but also warm, supportive, and conversational. The goal is to sound like a mentor who has studied the trader carefully and is speaking to them one-on-one.
 
-        # Call OpenAI API
+CONTEXT INPUT:
+1. A CSV of raw trades, including date, ticker, side, size, realized pnl, mood, and any tags. This provides a factual record of what the trader did.
+2. A behavioral scores file, where each trade (or day) includes multiple behavioral confidence scores. High-confidence values (for example, >= 0.6) should be interpreted as meaningful tendencies or flags. These scores show when behaviors such as revenge trading, overtrading, inconsistent sizing, or discipline after loss are likely present.
+
+HOW TO USE CONTEXT:
+- Refer to specific examples from the trade CSV: e.g. "on October 17, your back-to-back entries in AAPL suggest impatience after a loss."
+- Use the behavioral scores file to validate or deepen the interpretation: e.g. "this is supported by your revenge_immediate score being above 0.7 that day."
+- Combine both views: show how the raw actions and the statistical tendencies align, diverge, or reinforce each other.
+- Surface patterns across time: highlight recurring behaviors (e.g. multiple days flagged for overtrading) or changes (improvement in consistency).
+- Place these findings into a narrative that explains what they reveal about the trader’s psychology and habits.
+
+INSTRUCTIONS:
+- Always explain the "why" behind each pattern: what it suggests about emotions, mindset, or decision-making under stress.
+- Offer forward-looking reflections and coaching: concrete habits, mindsets, or experiments the trader can try to improve discipline.
+- Avoid financial recommendations. Focus on behavior, psychology, and discipline.
+- Write in a flowing, thoughtful way that encourages self-reflection, not just reporting. The trader should feel like they are reading a careful analysis of themselves written by a coach who has really studied their behavior.
+
+User’s Trading Context:
+{context_info}
+"""
+
+        # ------------------------------------------------------------------
+        # 4) Call OpenAI with the upgraded prompt (unchanged flow)
+        # ------------------------------------------------------------------
         api_key = os.getenv("OPEN_AI_KEY")
         if not api_key:
             raise Exception("OpenAI API key not found. Please set OPEN_AI_KEY environment variable.")
-        
+
         client = openai.OpenAI(api_key=api_key)
+        
+        # Build conversation messages including history
+        conversation_messages = [{"role": "system", "content": system_prompt}]
+        
+        # Add conversation history if provided
+        if request.conversation_history:
+            for msg in request.conversation_history[-10:]:  # Keep last 10 messages to avoid token limits
+                conversation_messages.append({
+                    "role": msg["role"],
+                    "content": msg["content"]
+                })
+        
+        # Add current user message
+        conversation_messages.append({"role": "user", "content": request.message})
+        
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": request.message}
-            ],
-            max_tokens=500,
+            model="gpt-5-mini",
+            messages=conversation_messages,
+            max_tokens=50000,
             temperature=0.7
         )
-        
         ai_response = response.choices[0].message.content
-        
-        # Generate insights based on the response
+
+        # ------------------------------------------------------------------
+        # 5) Light insight extraction (keep your existing structure)
+        # ------------------------------------------------------------------
         insights = []
-        if "overtrading" in ai_response.lower() or "revenge" in ai_response.lower():
+        low = ai_response.lower()
+        if "overtrading" in low or "revenge" in low:
             insights.append({
                 "type": "warning",
                 "title": "Behavioral Pattern Detected",
                 "message": "Focus on emotional control and trading discipline",
                 "recommendation": "Consider implementing trading breaks after losses"
             })
-        
-        if "improvement" in ai_response.lower() or "better" in ai_response.lower():
+        if "improvement" in low or "better" in low:
             insights.append({
                 "type": "info",
                 "title": "Growth Opportunity",
                 "message": "Areas identified for behavioral improvement",
                 "recommendation": "Focus on one improvement at a time"
             })
-        
-        return ChatResponse(response=ai_response, insights=insights if insights else None)
-        
+
+        return ChatResponse(response=ai_response, insights=insights or None)
+
     except Exception as e:
         print(f"Chat API error: {str(e)}")
         return ChatResponse(
-            response="I apologize, but I'm having trouble processing your request right now. Please try again in a moment.",
+            response="I’m having trouble processing your request right now. Please try again in a moment.",
             insights=None
         )
+
 
 # Report Generation endpoint
 @app.post("/api/generate-report")
 async def generate_report(request: ReportRequest):
     """Generate comprehensive trading behavior report"""
     try:
+        print(f"Generating report for {len(request.trades)} trades")
+        
         # Create PDF buffer
         buffer = io.BytesIO()
-        doc = SimpleDocTemplate(buffer, pagesize=letter)
+        doc = SimpleDocTemplate(buffer, pagesize=A4, topMargin=1*inch, bottomMargin=1*inch)
         styles = getSampleStyleSheet()
         
         # Custom styles
@@ -478,7 +623,7 @@ async def generate_report(request: ReportRequest):
             parent=styles['Heading1'],
             fontSize=24,
             spaceAfter=30,
-            alignment=1,  # Center alignment
+            alignment=TA_CENTER,
             textColor=colors.darkblue
         )
         
@@ -498,43 +643,10 @@ async def generate_report(request: ReportRequest):
         total_trades = len(trades)
         winning_trades = len([t for t in trades if t.get('realized_pnl', 0) > 0])
         win_rate = (winning_trades / total_trades * 100) if total_trades > 0 else 0
+        total_pnl = sum([t.get('realized_pnl', 0) for t in trades])
+        avg_pnl = total_pnl / total_trades if total_trades > 0 else 0
         
-        # Generate AI analysis
-        system_prompt = f"""You are an expert trading behavior analyst. Generate a comprehensive trading behavior report based on the following data:
-
-Trading Data:
-- Total Trades: {total_trades}
-- Win Rate: {win_rate:.1f}%
-- Behavioral Insights: {behavioral_data.get('insights', [])}
-
-Generate a professional report with:
-1. Executive Summary
-2. Behavioral Pattern Analysis
-3. Emotional Trading Assessment
-4. Risk Management Evaluation
-5. Specific Recommendations
-6. Action Plan
-
-Focus on behavioral aspects, not financial advice. Be specific and actionable."""
-
-        try:
-            api_key = os.getenv("OPEN_AI_KEY")
-            if not api_key:
-                raise Exception("OpenAI API key not found. Please set OPEN_AI_KEY environment variable.")
-            
-            client = openai.OpenAI(api_key=api_key)
-            ai_response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": "Generate a comprehensive trading behavior report"}
-                ],
-                max_tokens=1000,
-                temperature=0.7
-            )
-            report_content = ai_response.choices[0].message.content
-        except:
-            report_content = "AI analysis unavailable. Please check your OpenAI API configuration."
+        print(f"Stats: {total_trades} trades, {win_rate:.1f}% win rate, ${total_pnl:.2f} total P&L")
         
         # Build PDF content
         story = []
@@ -546,8 +658,9 @@ Focus on behavioral aspects, not financial advice. Be specific and actionable.""
         # Executive Summary
         story.append(Paragraph("Executive Summary", heading_style))
         story.append(Paragraph(f"""
-        This report analyzes your trading behavior patterns based on {total_trades} trades. 
-        Your current win rate is {win_rate:.1f}%, indicating {'strong' if win_rate > 60 else 'moderate' if win_rate > 40 else 'room for improvement in'} performance consistency.
+        This comprehensive report analyzes your trading behavior patterns based on {total_trades} trades. 
+        Your current win rate is {win_rate:.1f}%, with a total P&L of ${total_pnl:.2f} and average P&L per trade of ${avg_pnl:.2f}.
+        This indicates {'strong' if win_rate > 60 else 'moderate' if win_rate > 40 else 'room for improvement in'} performance consistency.
         """, styles['Normal']))
         story.append(Spacer(1, 12))
         
@@ -557,51 +670,98 @@ Focus on behavioral aspects, not financial advice. Be specific and actionable.""
             ['Metric', 'Value'],
             ['Total Trades', str(total_trades)],
             ['Winning Trades', str(winning_trades)],
+            ['Losing Trades', str(total_trades - winning_trades)],
             ['Win Rate', f"{win_rate:.1f}%"],
-            ['Behavioral Score', f"{behavioral_data.get('behavioralScore', 'N/A')}"]
+            ['Total P&L', f"${total_pnl:.2f}"],
+            ['Average P&L per Trade', f"${avg_pnl:.2f}"],
+            ['Best Trade', f"${max([t.get('realized_pnl', 0) for t in trades]):.2f}"],
+            ['Worst Trade', f"${min([t.get('realized_pnl', 0) for t in trades]):.2f}"]
         ]
         
-        stats_table = Table(stats_data)
+        stats_table = Table(stats_data, colWidths=[2*inch, 2*inch])
         stats_table.setStyle(TableStyle([
-            ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+            ('BACKGROUND', (0, 0), (-1, 0), colors.darkblue),
             ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
             ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
             ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-            ('FONTSIZE', (0, 0), (-1, 0), 14),
+            ('FONTSIZE', (0, 0), (-1, 0), 12),
             ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
-            ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
-            ('GRID', (0, 0), (-1, -1), 1, colors.black)
+            ('BACKGROUND', (0, 1), (-1, -1), colors.lightgrey),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('FONTSIZE', (0, 1), (-1, -1), 10)
         ]))
         story.append(stats_table)
         story.append(Spacer(1, 20))
         
-        # AI Analysis
+        # Behavioral Analysis
         story.append(Paragraph("Behavioral Analysis", heading_style))
-        story.append(Paragraph(report_content, styles['Normal']))
+        
+        # Analyze trading patterns
+        analysis_text = f"""
+        Based on your trading data, here are the key behavioral patterns identified:
+        
+        <b>Performance Analysis:</b>
+        • Your win rate of {win_rate:.1f}% {'exceeds' if win_rate > 60 else 'meets' if win_rate > 40 else 'falls below'} the typical trader average of 50-60%
+        • Average P&L of ${avg_pnl:.2f} per trade suggests {'strong' if avg_pnl > 0 else 'room for improvement in'} position sizing
+        • Total P&L of ${total_pnl:.2f} indicates {'profitable' if total_pnl > 0 else 'unprofitable'} trading performance
+        
+        <b>Risk Management Assessment:</b>
+        • {'Good' if abs(min([t.get('realized_pnl', 0) for t in trades])) < abs(avg_pnl) * 2 else 'Poor'} risk management based on worst trade vs average trade ratio
+        • {'Consistent' if len(set([t.get('ticker', '') for t in trades])) < total_trades * 0.3 else 'Diversified'} trading approach across tickers
+        
+        <b>Behavioral Insights:</b>
+        • Focus on maintaining discipline during {'winning' if win_rate > 60 else 'losing'} streaks
+        • {'Consider' if avg_pnl < 0 else 'Continue'} implementing consistent position sizing rules
+        • Track emotional patterns that may impact trading decisions
+        """
+        
+        story.append(Paragraph(analysis_text, styles['Normal']))
         story.append(Spacer(1, 20))
         
         # Recommendations
         story.append(Paragraph("Key Recommendations", heading_style))
         recommendations = [
-            "Focus on emotional control during losing streaks",
-            "Implement consistent position sizing rules",
-            "Take breaks after consecutive losses",
-            "Track mood patterns and their impact on decisions",
-            "Develop a pre-trade checklist for discipline"
+            "Implement a maximum daily loss limit to prevent emotional trading",
+            "Use consistent position sizing based on account size and risk tolerance",
+            "Take breaks after consecutive losses to avoid revenge trading",
+            "Track mood patterns and their impact on trading decisions",
+            "Develop a pre-trade checklist for discipline and consistency",
+            "Review and analyze losing trades to identify behavioral patterns",
+            "Set realistic profit targets and stick to your trading plan"
         ]
         
-        for rec in recommendations:
-            story.append(Paragraph(f"• {rec}", styles['Normal']))
+        for i, rec in enumerate(recommendations, 1):
+            story.append(Paragraph(f"{i}. {rec}", styles['Normal']))
         
         story.append(Spacer(1, 20))
         
+        # Action Plan
+        story.append(Paragraph("30-Day Action Plan", heading_style))
+        action_plan = f"""
+        <b>Week 1:</b> Implement daily loss limits and position sizing rules
+        <b>Week 2:</b> Start tracking mood and emotional state before each trade
+        <b>Week 3:</b> Review all trades and identify recurring behavioral patterns
+        <b>Week 4:</b> Refine your trading plan based on behavioral insights
+        
+        <b>Success Metrics:</b>
+        • Maintain win rate above {max(40, win_rate - 5):.0f}%
+        • Keep average loss below ${abs(avg_pnl) * 1.5:.2f}
+        • Complete daily trading journal entries
+        • Follow pre-trade checklist 100% of the time
+        """
+        
+        story.append(Paragraph(action_plan, styles['Normal']))
+        story.append(Spacer(1, 20))
+        
         # Footer
-        story.append(Paragraph(f"Report generated on {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}", 
-                             ParagraphStyle('Footer', parent=styles['Normal'], fontSize=8, alignment=1)))
+        story.append(Paragraph(f"Report generated on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", 
+                             ParagraphStyle('Footer', parent=styles['Normal'], fontSize=8, alignment=TA_CENTER)))
         
         # Build PDF
         doc.build(story)
         buffer.seek(0)
+        
+        print(f"PDF generated successfully, size: {len(buffer.getvalue())} bytes")
         
         return StreamingResponse(
             io.BytesIO(buffer.getvalue()),
@@ -611,6 +771,8 @@ Focus on behavioral aspects, not financial advice. Be specific and actionable.""
         
     except Exception as e:
         print(f"Report generation error: {str(e)}")
+        import traceback
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Report generation failed: {str(e)}")
 
 # Analytics endpoint
