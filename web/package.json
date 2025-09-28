@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.58.0",
+    "cedar-os": "^0.1.23",
+    "cedar-os-components": "^0.0.15",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
     "framer-motion": "^10.16.4",

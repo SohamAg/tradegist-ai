@@ -15,7 +15,11 @@ import {
   BarChart3,
   Upload,
   Download,
-  Tag
+  Tag,
+  Trash2,
+  X,
+  Eye,
+  Loader2
 } from 'lucide-react'
 import { BEHAVIORAL_TAGS, getTagColor, getTagTextColor } from '../utils/tags'
 import { TradeService, type Trade } from '../services/tradeService'
@@ -32,6 +36,7 @@ export default function TradeLogPage() {
   const [availableTags, setAvailableTags] = useState<string[]>([])
   const [selectedTrade, setSelectedTrade] = useState<Trade | null>(null)
   const [showTradeDetails, setShowTradeDetails] = useState(false)
+  const [showResetModal, setShowResetModal] = useState(false)
   const [trades, setTrades] = useState<Trade[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -84,7 +89,9 @@ export default function TradeLogPage() {
   const loadTrades = async (offset = 0, append = false) => {
     try {
       setLoading(true)
+      console.log('Loading trades with offset:', offset)
       const data = await TradeService.getTrades(5000, offset)
+      console.log('Loaded trades:', data.length, 'trades')
       
       if (append) {
         setTrades(prev => [...prev, ...data])
@@ -93,35 +100,49 @@ export default function TradeLogPage() {
       }
       
       // Load behavioral tags for all trades
-      const tradeIds = data.map(t => t.trade_id)
-      const tagsData = await TradeService.getTradeBehavioralTags(tradeIds)
-      
-      // Process tags data
-      const newBehavioralTags = { ...behavioralTags }
-      tagsData.forEach(tagData => {
-        const tags = []
-        if (tagData.outcome_win > 0.5) tags.push({ key: 'outcome_win', label: 'Win', color: 'success' })
-        if (tagData.outcome_loss > 0.5) tags.push({ key: 'outcome_loss', label: 'Loss', color: 'danger' })
-        if (tagData.outcome_breakeven > 0.5) tags.push({ key: 'outcome_breakeven', label: 'Breakeven', color: 'warning' })
-        if (tagData.large_win > 0.5) tags.push({ key: 'large_win', label: 'Large Win', color: 'success' })
-        if (tagData.large_loss > 0.5) tags.push({ key: 'large_loss', label: 'Large Loss', color: 'danger' })
-        if (tagData.revenge_immediate > 0.5) tags.push({ key: 'revenge_immediate', label: 'Revenge Trade', color: 'danger' })
-        if (tagData.size_inconsistency > 0.5) tags.push({ key: 'size_inconsistency', label: 'Size Inconsistent', color: 'warning' })
-        if (tagData.follow_through_win_immediate > 0.5) tags.push({ key: 'follow_through_win_immediate', label: 'Follow Through', color: 'success' })
-        if (tagData.disciplined_after_loss_immediate > 0.5) tags.push({ key: 'disciplined_after_loss_immediate', label: 'Disciplined', color: 'success' })
-        if (tagData.consistent_size > 0.5) tags.push({ key: 'consistent_size', label: 'Consistent Size', color: 'primary' })
-        if (tagData.overtrading_day > 0.5) tags.push({ key: 'overtrading_day', label: 'Overtrading Day', color: 'danger' })
-        if (tagData.revenge_day > 0.5) tags.push({ key: 'revenge_day', label: 'Revenge Day', color: 'danger' })
-        if (tagData.chop_day > 0.5) tags.push({ key: 'chop_day', label: 'Chop Day', color: 'warning' })
-        if (tagData.ticker_bias_lifetime > 0.5) tags.push({ key: 'ticker_bias_lifetime', label: 'Ticker Bias (Lifetime)', color: 'danger' })
-        if (tagData.ticker_bias_recent > 0.5) tags.push({ key: 'ticker_bias_recent', label: 'Ticker Bias (Recent)', color: 'warning' })
-        if (tagData.focused_day > 0.5) tags.push({ key: 'focused_day', label: 'Focused Day', color: 'primary' })
-        if (tagData.green_day_low_activity > 0.5) tags.push({ key: 'green_day_low_activity', label: 'Green Day (Low Activity)', color: 'success' })
+      if (data.length > 0) {
+        const tradeIds = data.map(t => t.trade_id)
+        console.log('Loading behavioral tags for trade IDs:', tradeIds)
+        const tagsData = await TradeService.getTradeBehavioralTags(tradeIds)
+        console.log('Loaded behavioral tags:', tagsData.length, 'entries')
         
-        newBehavioralTags[tagData.trade_id] = tags
-      })
-      
-      setBehavioralTags(newBehavioralTags)
+        // Process tags data
+        const newBehavioralTags = { ...behavioralTags }
+        console.log('Processing behavioral tags data:', tagsData)
+        tagsData.forEach(tagData => {
+          const tags = []
+          console.log('Processing trade:', tagData.trade_id, 'with scores:', {
+            outcome_win: tagData.outcome_win,
+            outcome_loss: tagData.outcome_loss,
+            large_win: tagData.large_win,
+            large_loss: tagData.large_loss
+          })
+          
+          if (tagData.outcome_win > 0.5) tags.push({ key: 'outcome_win', label: 'Win', color: 'success' })
+          if (tagData.outcome_loss > 0.5) tags.push({ key: 'outcome_loss', label: 'Loss', color: 'danger' })
+          if (tagData.outcome_breakeven > 0.5) tags.push({ key: 'outcome_breakeven', label: 'Breakeven', color: 'warning' })
+          if (tagData.large_win > 0.5) tags.push({ key: 'large_win', label: 'Large Win', color: 'success' })
+          if (tagData.large_loss > 0.5) tags.push({ key: 'large_loss', label: 'Large Loss', color: 'danger' })
+          if (tagData.revenge_immediate > 0.5) tags.push({ key: 'revenge_immediate', label: 'Revenge Trade', color: 'danger' })
+          if (tagData.size_inconsistency > 0.5) tags.push({ key: 'size_inconsistency', label: 'Size Inconsistent', color: 'warning' })
+          if (tagData.follow_through_win_immediate > 0.5) tags.push({ key: 'follow_through_win_immediate', label: 'Follow Through', color: 'success' })
+          if (tagData.disciplined_after_loss_immediate > 0.5) tags.push({ key: 'disciplined_after_loss_immediate', label: 'Disciplined', color: 'success' })
+          if (tagData.consistent_size > 0.5) tags.push({ key: 'consistent_size', label: 'Consistent Size', color: 'primary' })
+          if (tagData.overtrading_day > 0.5) tags.push({ key: 'overtrading_day', label: 'Overtrading Day', color: 'danger' })
+          if (tagData.revenge_day > 0.5) tags.push({ key: 'revenge_day', label: 'Revenge Day', color: 'danger' })
+          if (tagData.chop_day > 0.5) tags.push({ key: 'chop_day', label: 'Chop Day', color: 'warning' })
+          if (tagData.ticker_bias_lifetime > 0.5) tags.push({ key: 'ticker_bias_lifetime', label: 'Ticker Bias (Lifetime)', color: 'danger' })
+          if (tagData.ticker_bias_recent > 0.5) tags.push({ key: 'ticker_bias_recent', label: 'Ticker Bias (Recent)', color: 'warning' })
+          if (tagData.focused_day > 0.5) tags.push({ key: 'focused_day', label: 'Focused Day', color: 'primary' })
+          if (tagData.green_day_low_activity > 0.5) tags.push({ key: 'green_day_low_activity', label: 'Green Day (Low Activity)', color: 'success' })
+          
+          console.log('Generated tags for trade', tagData.trade_id, ':', tags)
+          newBehavioralTags[tagData.trade_id] = tags
+        })
+        
+        console.log('Final behavioral tags object:', newBehavioralTags)
+        setBehavioralTags(newBehavioralTags)
+      }
       
       // Check if we got fewer trades than requested (indicating no more data)
       setHasMoreTrades(data.length === 5000)
@@ -215,36 +236,60 @@ export default function TradeLogPage() {
     const file = e.target.files?.[0]
     if (!file) return
 
-    const reader = new FileReader()
-    reader.onload = async (event) => {
-      try {
-        const csv = event.target?.result as string
-        const lines = csv.split('\n')
-        const headers = lines[0].split(',').map(h => h.trim())
+    try {
+      setLoading(true)
+      setError('')
+      
+      // Show import progress
+      const result = await TradeService.importTradesFromCSV(file)
+      
+      if (result.success) {
+        // Reload trades from Supabase
+        await loadTrades()
         
-        const csvData = []
+        // Show success message
+        alert(`CSV Import Successful!\n\nTrades: ${result.trades_count}\nTags: ${result.tags_count}\nTrade Scores: ${result.trade_scores_count}\nDay Scores: ${result.day_scores_count}\nSupabase Imported: ${result.supabase_imported ? 'Yes' : 'No'}`)
         
-        for (let i = 1; i < lines.length; i++) {
-          if (lines[i].trim()) {
-            const values = lines[i].split(',').map(v => v.trim())
-            const row: any = {}
-            headers.forEach((header, index) => {
-              row[header.toLowerCase().replace(/\s+/g, '')] = values[index]
-            })
-            csvData.push(row)
-          }
-        }
-        
-        const importedTrades = await TradeService.importTradesFromCSV(csvData)
-        setTrades([...importedTrades, ...trades])
         setShowImportModal(false)
-      } catch (err) {
-        setError('Failed to import CSV')
-        console.error('Error importing CSV:', err)
+      } else {
+        setError(result.message || 'CSV import failed')
       }
+    } catch (err: any) {
+      setError(err.message || 'Failed to import CSV')
+      console.error('Error importing CSV:', err)
+    } finally {
+      setLoading(false)
     }
-    
-    reader.readAsText(file)
+  }
+
+  const handleResetAllData = async () => {
+    try {
+      setLoading(true)
+      setError('')
+      
+      const result = await TradeService.resetData()
+      
+      if (result.success) {
+        // Clear local state
+        setTrades([])
+        setBehavioralTags({})
+        setAvailableTags([])
+        setCurrentOffset(0)
+        setHasMoreTrades(true)
+        
+        // Show success message
+        alert(`Data Reset Successful!\n\nRemaining trades: ${result.remaining_trades}`)
+        
+        setShowResetModal(false)
+      } else {
+        setError(result.message || 'Data reset failed')
+      }
+    } catch (err: any) {
+      setError(err.message || 'Failed to reset data')
+      console.error('Error resetting data:', err)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const filteredTrades = trades.filter(trade => {
@@ -336,6 +381,13 @@ export default function TradeLogPage() {
                 </p>
           </div>
           <div className="flex gap-3">
+            <button
+              onClick={() => setShowResetModal(true)}
+              className="btn btn-danger text-lg px-6 py-3 inline-flex items-center group"
+            >
+              <Trash2 className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+              Reset All
+            </button>
             <button
               onClick={() => setShowImportModal(true)}
               className="btn btn-secondary text-lg px-6 py-3 inline-flex items-center group"
@@ -611,6 +663,7 @@ export default function TradeLogPage() {
                         }) : null}
                         
                         {/* Behavioral tags from database */}
+                        {console.log('Rendering tags for trade', trade.trade_id, ':', behavioralTags[trade.trade_id])}
                         {behavioralTags[trade.trade_id]?.map((tag, tagIndex) => (
                           <span
                             key={`behavioral-${tagIndex}`}
@@ -871,43 +924,63 @@ export default function TradeLogPage() {
                 </button>
               </div>
 
-              <div className="space-y-6">
-                <div className="p-4 bg-slate-800/50 rounded-xl border border-slate-700/50">
-                  <h3 className="text-lg font-semibold text-white mb-3">CSV Format Requirements</h3>
-                  <p className="text-slate-300 text-sm mb-4">
-                    Your CSV file should have the following columns in order:
-                  </p>
-                  <div className="grid grid-cols-2 gap-2 text-sm">
-                    <div className="text-slate-400">1. Date</div>
-                    <div className="text-slate-400">2. Ticker</div>
-                    <div className="text-slate-400">3. Side</div>
-                    <div className="text-slate-400">4. Quantity</div>
-                    <div className="text-slate-400">5. Entry Price</div>
-                    <div className="text-slate-400">6. Exit Price</div>
-                    <div className="text-slate-400">7. Fees</div>
-                    <div className="text-slate-400">8. Strategy</div>
-                    <div className="text-slate-400">9. Notes</div>
-                    <div className="text-slate-400">10. Mood</div>
-                    <div className="text-slate-400">11. Status</div>
-                    <div className="text-slate-400">12. Tags (pipe-separated)</div>
-                  </div>
-                </div>
+                  <div className="space-y-6">
+                    <div className="p-4 bg-slate-800/50 rounded-xl border border-slate-700/50">
+                      <h3 className="text-lg font-semibold text-white mb-3">CSV Import Process</h3>
+                      <div className="space-y-3 text-sm text-slate-300">
+                        <p>✅ <strong>Data Reset:</strong> All existing data will be cleared</p>
+                        <p>✅ <strong>Full Pipeline:</strong> Runs complete analysis (features, rules, labels)</p>
+                        <p>✅ <strong>Supabase Import:</strong> Data stored in database with behavioral tags</p>
+                        <p>✅ <strong>Real-time Update:</strong> Interface refreshes with new data</p>
+                      </div>
+                    </div>
+
+                    <div className="p-4 bg-slate-800/50 rounded-xl border border-slate-700/50">
+                      <h3 className="text-lg font-semibold text-white mb-3">Expected CSV Format</h3>
+                      <p className="text-slate-300 text-sm mb-4">
+                        Your CSV should contain raw trade executions (not round-trips). The system will automatically:
+                      </p>
+                      <div className="grid grid-cols-2 gap-2 text-sm">
+                        <div className="text-slate-400">• Convert to round-trips</div>
+                        <div className="text-slate-400">• Calculate P&L</div>
+                        <div className="text-slate-400">• Generate behavioral tags</div>
+                        <div className="text-slate-400">• Create daily summaries</div>
+                        <div className="text-slate-400">• Store in database</div>
+                        <div className="text-slate-400">• Update analytics</div>
+                      </div>
+                      <p className="text-xs text-primary-400 mt-3">
+                        Required columns: date, ticker, side, qty, price, fees
+                      </p>
+                    </div>
 
                 <div className="border-2 border-dashed border-slate-600 rounded-xl p-8 text-center hover:border-primary-500/50 transition-colors">
                   <Upload className="h-12 w-12 text-slate-400 mx-auto mb-4" />
-                  <p className="text-slate-300 mb-4">Choose a CSV file to import</p>
+                  <p className="text-slate-300 mb-4">
+                    {loading ? 'Processing CSV...' : 'Choose a CSV file to import'}
+                  </p>
                   <input
                     type="file"
                     accept=".csv"
                     onChange={handleCSVImport}
                     className="hidden"
                     id="csv-import"
+                    disabled={loading}
                   />
                   <label
                     htmlFor="csv-import"
-                    className="btn btn-primary cursor-pointer"
+                    className={`btn ${loading ? 'btn-secondary' : 'btn-primary'} cursor-pointer ${loading ? 'opacity-50' : ''}`}
                   >
-                    Select CSV File
+                    {loading ? (
+                      <>
+                        <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Processing...
+                      </>
+                    ) : (
+                      'Select CSV File'
+                    )}
                   </label>
                 </div>
 
@@ -1073,6 +1146,72 @@ export default function TradeLogPage() {
                     />
                   </div>
                 )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Reset Confirmation Modal */}
+      <AnimatePresence>
+        {showResetModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-slate-800 border border-slate-700 rounded-xl p-6 max-w-md w-full"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-danger-500/20 rounded-lg">
+                  <Trash2 className="h-6 w-6 text-danger-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">Reset All Data</h3>
+                  <p className="text-slate-400 text-sm">This action cannot be undone</p>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <p className="text-slate-300 mb-3">
+                  This will permanently delete all your trading data including:
+                </p>
+                <ul className="text-slate-400 text-sm space-y-1 ml-4">
+                  <li>• All trades and transactions</li>
+                  <li>• Behavioral tags and scores</li>
+                  <li>• Daily P&L records</li>
+                  <li>• Manual tags and notes</li>
+                </ul>
+                <p className="text-danger-400 text-sm mt-3 font-medium">
+                  Are you sure you want to continue?
+                </p>
+              </div>
+
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowResetModal(false)}
+                  className="flex-1 btn btn-secondary"
+                  disabled={loading}
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleResetAllData}
+                  className="flex-1 btn btn-danger inline-flex items-center justify-center"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                  ) : (
+                    <Trash2 className="h-4 w-4 mr-2" />
+                  )}
+                  {loading ? 'Resetting...' : 'Reset All Data'}
+                </button>
               </div>
             </motion.div>
           </motion.div>

@@ -296,7 +296,18 @@ export class TradeService {
 
   // ====== BEHAVIORAL TAGS ======
 
+  static async getBehavioralTags() {
+    const { data, error } = await supabase
+      .from('tags_raw')
+      .select('*')
+      .eq('user_id', fixedUserId)
+
+    if (error) throw error
+    return data || []
+  }
+
   static async getTradeBehavioralTags(tradeIds?: number[]) {
+    console.log('getTradeBehavioralTags called with tradeIds:', tradeIds)
     let query = supabase
       .from('v_trade_scores_with_day')
       .select('*')
@@ -307,6 +318,7 @@ export class TradeService {
     }
 
     const { data, error } = await query
+    console.log('Supabase query result:', { data, error })
     if (error) throw error
     return data
   }
@@ -351,35 +363,55 @@ export class TradeService {
 
   // ====== CSV IMPORT ======
 
-  static async importTradesFromCSV(csvData: any[]) {
-    const trades = csvData.map(row => ({
-      ticker: row.ticker || '',
-      side: (row.side || 'long') as 'long' | 'short',
-      trade_date: row.date || new Date().toISOString().split('T')[0],
-      trade_time: row.time || null,
-      qty: parseFloat(row.quantity) || 0,
-      entry_price: parseFloat(row.entryPrice) || 0,
-      exit_price: parseFloat(row.exitPrice) || 0,
-      fees: parseFloat(row.fees) || 0,
-      realized_pnl: parseFloat(row.pnl) || 0,
-      strategy: row.strategy || '',
-      hold_time_sec: parseFloat(row.holdTimeSec) || null,
-      note: row.notes || '',
-      mood: row.mood || '',
-      manual_tags: row.tags || '',
-      screenshot_url: row.screenshotUrl || ''
-    }))
+  static async importTradesFromCSV(file: File): Promise<{
+    success: boolean;
+    message: string;
+    trades_count: number;
+    tags_count: number;
+    supabase_imported: boolean;
+    trade_scores_count: number;
+    day_scores_count: number;
+  }> {
+    const formData = new FormData()
+    formData.append('file', file)
 
-    const { data, error } = await supabase
-      .from('trades')
-      .insert(trades.map(trade => ({
-        ...trade,
-        user_id: fixedUserId,
-        account_id: crypto.randomUUID()
-      })))
-      .select()
+    try {
+      const response = await fetch('http://localhost:8000/api/import-csv', {
+        method: 'POST',
+        body: formData,
+      })
 
-    if (error) throw error
-    return data as Trade[]
+      if (!response.ok) {
+        if (response.status === 0 || response.status === 500) {
+          throw new Error('Backend server is not running. Please start the backend server.')
+        }
+        const error = await response.text()
+        throw new Error(`CSV import failed: ${error}`)
+      }
+
+      return await response.json()
+    } catch (error: any) {
+      if (error.message.includes('Failed to fetch') || error.message.includes('ERR_CONNECTION_REFUSED')) {
+        throw new Error('Cannot connect to backend server. Please ensure the backend is running on port 8000.')
+      }
+      throw error
+    }
+  }
+
+  static async resetData(): Promise<{
+    success: boolean;
+    message: string;
+    remaining_trades: number;
+  }> {
+    const response = await fetch('http://localhost:8000/api/reset-data', {
+      method: 'POST',
+    })
+
+    if (!response.ok) {
+      const error = await response.text()
+      throw new Error(`Data reset failed: ${error}`)
+    }
+
+    return await response.json()
   }
 }
