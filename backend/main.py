@@ -569,9 +569,7 @@ User’s Trading Context:
         
         response = client.chat.completions.create(
             model="gpt-5-mini",
-            messages=conversation_messages,
-            max_tokens=50000,
-            temperature=0.7
+            messages=conversation_messages
         )
         ai_response = response.choices[0].message.content
 
@@ -942,6 +940,8 @@ async def import_csv(file: UploadFile = File(...)):
         # First reset existing data
         import psycopg
         from app.ingest_to_supabase import UID, DB
+        DB  = os.environ.get("DATABASE_URL")
+        UID = os.environ.get("TG_USER_ID")
         
         print(f"Resetting data for user: {UID}")
         
