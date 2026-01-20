@@ -1,5 +1,7 @@
 # Tradegist AI 🚀
 
+Written by AI ↓ - Should be mostly accurate 
+
 **Advanced Trading Behavior Analysis Platform**
 
 Tradegist AI is a comprehensive trading behavior analysis platform that combines machine learning, behavioral psychology, and AI coaching to help traders improve their decision-making, emotional control, and trading discipline.
